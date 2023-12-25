@@ -1,0 +1,1061 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="StudentLinkUpDB1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Campus">
+          <Key>
+            <PropertyRef Name="campusID" />
+          </Key>
+          <Property Name="campusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="campusName" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Condition">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="condition" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="ItemType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="itemType" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="LearningMaterial">
+          <Key>
+            <PropertyRef Name="materialID" />
+          </Key>
+          <Property Name="materialID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="materialType" Type="int" Nullable="false" />
+          <Property Name="username" Type="int" Nullable="false" />
+          <Property Name="title" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="author" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="publisher" Type="varchar" MaxLength="50" />
+          <Property Name="edition" Type="int" />
+          <Property Name="price" Type="money" Nullable="false" />
+          <Property Name="condition" Type="int" Nullable="false" />
+          <Property Name="moduleName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="available" Type="bit" />
+          <Property Name="Bookimage" Type="varchar(max)" />
+          <Property Name="enabled" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Meetings">
+          <Key>
+            <PropertyRef Name="meetingID" />
+          </Key>
+          <Property Name="meetingID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="meetingLocation" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="meetingDate" Type="date" Nullable="false" />
+          <Property Name="meetingTime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="success" Type="bit" Nullable="false" />
+          <Property Name="userID_buyer" Type="int" Nullable="false" />
+          <Property Name="userID_seller" Type="int" Nullable="false" />
+          <Property Name="materialID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Modules">
+          <Key>
+            <PropertyRef Name="moduleCode" />
+          </Key>
+          <Property Name="moduleCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="moduleName" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PayType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="payType" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Receipts">
+          <Key>
+            <PropertyRef Name="receiptNum" />
+          </Key>
+          <Property Name="receiptNum" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="meetingID" Type="int" Nullable="false" />
+          <Property Name="itemName" Type="int" Nullable="false" />
+          <Property Name="total" Type="money" Nullable="false" />
+          <Property Name="meetingDate" Type="date" Nullable="false" />
+          <Property Name="meetingTime" Type="time" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Reviews">
+          <Key>
+            <PropertyRef Name="reviewID" />
+          </Key>
+          <Property Name="reviewID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userID_Seller" Type="int" />
+          <Property Name="userID_Buyer" Type="int" />
+          <Property Name="rating" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="review" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\PROGRAM FILES\MICROSOFT SQL SERVER\MSSQL15.MSSQLSERVER\MSSQL\DATA\STUDENTLINKUPDB1.MDF.dbo.UserMessages' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="UserMessages">
+          <Key>
+            <PropertyRef Name="messageID" />
+            <PropertyRef Name="senderID" />
+            <PropertyRef Name="recieverID" />
+            <PropertyRef Name="containedText" />
+            <PropertyRef Name="messageDate" />
+            <PropertyRef Name="messageTime" />
+          </Key>
+          <Property Name="messageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="senderID" Type="int" Nullable="false" />
+          <Property Name="recieverID" Type="int" Nullable="false" />
+          <Property Name="containedText" Type="varchar(max)" Nullable="false" />
+          <Property Name="messageDate" Type="date" Nullable="false" />
+          <Property Name="messageTime" Type="time" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserProfiles">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="userFName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="userSName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="userPassword" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="studentNum" Type="int" Nullable="false" />
+          <Property Name="campusID" Type="int" Nullable="false" />
+          <Property Name="areaCode" Type="int" Nullable="false" />
+          <Property Name="cellNum" Type="int" Nullable="false" />
+          <Property Name="ban" Type="bit" Nullable="false" />
+          <Property Name="yearOfStudy" Type="int" />
+          <Property Name="payType" Type="int" />
+          <Property Name="userType" Type="int" Nullable="false" />
+          <Property Name="UserIconName" Type="varchar" MaxLength="50" />
+          <Property Name="userDeleted" Type="bit" Nullable="false" />
+          <Property Name="userUpVotes" Type="int" Nullable="false" />
+          <Property Name="userDownVotes" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userType" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <Association Name="FK__Reviews__userID___625A9A57">
+          <End Role="UserProfiles" Type="Self.UserProfiles" Multiplicity="0..1" />
+          <End Role="Reviews" Type="Self.Reviews" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfiles">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="Reviews">
+              <PropertyRef Name="userID_Seller" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reviews__userID___634EBE90">
+          <End Role="UserProfiles" Type="Self.UserProfiles" Multiplicity="0..1" />
+          <End Role="Reviews" Type="Self.Reviews" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfiles">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="Reviews">
+              <PropertyRef Name="userID_Buyer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_learningMaterial_condition">
+          <End Role="Condition" Type="Self.Condition" Multiplicity="1" />
+          <End Role="LearningMaterial" Type="Self.LearningMaterial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Condition">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="LearningMaterial">
+              <PropertyRef Name="condition" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_learningMaterial_materialType">
+          <End Role="ItemType" Type="Self.ItemType" Multiplicity="1" />
+          <End Role="LearningMaterial" Type="Self.LearningMaterial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="LearningMaterial">
+              <PropertyRef Name="materialType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_learningMaterial_modules">
+          <End Role="Modules" Type="Self.Modules" Multiplicity="1" />
+          <End Role="LearningMaterial" Type="Self.LearningMaterial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modules">
+              <PropertyRef Name="moduleCode" />
+            </Principal>
+            <Dependent Role="LearningMaterial">
+              <PropertyRef Name="moduleName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_learningMaterial_userProfile">
+          <End Role="UserProfiles" Type="Self.UserProfiles" Multiplicity="1" />
+          <End Role="LearningMaterial" Type="Self.LearningMaterial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfiles">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="LearningMaterial">
+              <PropertyRef Name="username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_meeting_buyer">
+          <End Role="UserProfiles" Type="Self.UserProfiles" Multiplicity="1" />
+          <End Role="Meetings" Type="Self.Meetings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfiles">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="Meetings">
+              <PropertyRef Name="userID_buyer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_meeting_learningMaterial">
+          <End Role="LearningMaterial" Type="Self.LearningMaterial" Multiplicity="1" />
+          <End Role="Meetings" Type="Self.Meetings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LearningMaterial">
+              <PropertyRef Name="materialID" />
+            </Principal>
+            <Dependent Role="Meetings">
+              <PropertyRef Name="materialID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_meeting_seller">
+          <End Role="UserProfiles" Type="Self.UserProfiles" Multiplicity="1" />
+          <End Role="Meetings" Type="Self.Meetings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfiles">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="Meetings">
+              <PropertyRef Name="userID_seller" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_message_reciever">
+          <End Role="UserProfiles" Type="Self.UserProfiles" Multiplicity="1" />
+          <End Role="UserMessages" Type="Self.UserMessages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfiles">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="UserMessages">
+              <PropertyRef Name="recieverID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_message_sender">
+          <End Role="UserProfiles" Type="Self.UserProfiles" Multiplicity="1" />
+          <End Role="UserMessages" Type="Self.UserMessages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfiles">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="UserMessages">
+              <PropertyRef Name="senderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_receipt_learningMaterial">
+          <End Role="LearningMaterial" Type="Self.LearningMaterial" Multiplicity="1" />
+          <End Role="Receipts" Type="Self.Receipts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LearningMaterial">
+              <PropertyRef Name="materialID" />
+            </Principal>
+            <Dependent Role="Receipts">
+              <PropertyRef Name="itemName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_receipt_meeting">
+          <End Role="Meetings" Type="Self.Meetings" Multiplicity="1" />
+          <End Role="Receipts" Type="Self.Receipts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Meetings">
+              <PropertyRef Name="meetingID" />
+            </Principal>
+            <Dependent Role="Receipts">
+              <PropertyRef Name="meetingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_user_campus">
+          <End Role="Campus" Type="Self.Campus" Multiplicity="1" />
+          <End Role="UserProfiles" Type="Self.UserProfiles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Campus">
+              <PropertyRef Name="campusID" />
+            </Principal>
+            <Dependent Role="UserProfiles">
+              <PropertyRef Name="campusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_user_payType">
+          <End Role="PayType" Type="Self.PayType" Multiplicity="0..1" />
+          <End Role="UserProfiles" Type="Self.UserProfiles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PayType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UserProfiles">
+              <PropertyRef Name="payType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_user_userType">
+          <End Role="UserType" Type="Self.UserType" Multiplicity="1" />
+          <End Role="UserProfiles" Type="Self.UserProfiles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UserProfiles">
+              <PropertyRef Name="userType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="StudentLinkUpDB1ModelStoreContainer">
+          <EntitySet Name="Campus" EntityType="Self.Campus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Condition" EntityType="Self.Condition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ItemType" EntityType="Self.ItemType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LearningMaterial" EntityType="Self.LearningMaterial" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Meetings" EntityType="Self.Meetings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Modules" EntityType="Self.Modules" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PayType" EntityType="Self.PayType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Receipts" EntityType="Self.Receipts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reviews" EntityType="Self.Reviews" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserProfiles" EntityType="Self.UserProfiles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserType" EntityType="Self.UserType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserMessages" EntityType="Self.UserMessages" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [UserMessages].[messageID] AS [messageID], 
+    [UserMessages].[senderID] AS [senderID], 
+    [UserMessages].[recieverID] AS [recieverID], 
+    [UserMessages].[containedText] AS [containedText], 
+    [UserMessages].[messageDate] AS [messageDate], 
+    [UserMessages].[messageTime] AS [messageTime]
+    FROM [dbo].[UserMessages] AS [UserMessages]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__Reviews__userID___625A9A57" Association="Self.FK__Reviews__userID___625A9A57">
+            <End Role="UserProfiles" EntitySet="UserProfiles" />
+            <End Role="Reviews" EntitySet="Reviews" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reviews__userID___634EBE90" Association="Self.FK__Reviews__userID___634EBE90">
+            <End Role="UserProfiles" EntitySet="UserProfiles" />
+            <End Role="Reviews" EntitySet="Reviews" />
+          </AssociationSet>
+          <AssociationSet Name="fk_learningMaterial_condition" Association="Self.fk_learningMaterial_condition">
+            <End Role="Condition" EntitySet="Condition" />
+            <End Role="LearningMaterial" EntitySet="LearningMaterial" />
+          </AssociationSet>
+          <AssociationSet Name="fk_learningMaterial_materialType" Association="Self.fk_learningMaterial_materialType">
+            <End Role="ItemType" EntitySet="ItemType" />
+            <End Role="LearningMaterial" EntitySet="LearningMaterial" />
+          </AssociationSet>
+          <AssociationSet Name="fk_learningMaterial_modules" Association="Self.fk_learningMaterial_modules">
+            <End Role="Modules" EntitySet="Modules" />
+            <End Role="LearningMaterial" EntitySet="LearningMaterial" />
+          </AssociationSet>
+          <AssociationSet Name="fk_learningMaterial_userProfile" Association="Self.fk_learningMaterial_userProfile">
+            <End Role="UserProfiles" EntitySet="UserProfiles" />
+            <End Role="LearningMaterial" EntitySet="LearningMaterial" />
+          </AssociationSet>
+          <AssociationSet Name="fk_meeting_buyer" Association="Self.fk_meeting_buyer">
+            <End Role="UserProfiles" EntitySet="UserProfiles" />
+            <End Role="Meetings" EntitySet="Meetings" />
+          </AssociationSet>
+          <AssociationSet Name="fk_meeting_learningMaterial" Association="Self.fk_meeting_learningMaterial">
+            <End Role="LearningMaterial" EntitySet="LearningMaterial" />
+            <End Role="Meetings" EntitySet="Meetings" />
+          </AssociationSet>
+          <AssociationSet Name="fk_meeting_seller" Association="Self.fk_meeting_seller">
+            <End Role="UserProfiles" EntitySet="UserProfiles" />
+            <End Role="Meetings" EntitySet="Meetings" />
+          </AssociationSet>
+          <AssociationSet Name="fk_message_reciever" Association="Self.fk_message_reciever">
+            <End Role="UserProfiles" EntitySet="UserProfiles" />
+            <End Role="UserMessages" EntitySet="UserMessages" />
+          </AssociationSet>
+          <AssociationSet Name="fk_message_sender" Association="Self.fk_message_sender">
+            <End Role="UserProfiles" EntitySet="UserProfiles" />
+            <End Role="UserMessages" EntitySet="UserMessages" />
+          </AssociationSet>
+          <AssociationSet Name="fk_receipt_learningMaterial" Association="Self.fk_receipt_learningMaterial">
+            <End Role="LearningMaterial" EntitySet="LearningMaterial" />
+            <End Role="Receipts" EntitySet="Receipts" />
+          </AssociationSet>
+          <AssociationSet Name="fk_receipt_meeting" Association="Self.fk_receipt_meeting">
+            <End Role="Meetings" EntitySet="Meetings" />
+            <End Role="Receipts" EntitySet="Receipts" />
+          </AssociationSet>
+          <AssociationSet Name="fk_user_campus" Association="Self.fk_user_campus">
+            <End Role="Campus" EntitySet="Campus" />
+            <End Role="UserProfiles" EntitySet="UserProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="fk_user_payType" Association="Self.fk_user_payType">
+            <End Role="PayType" EntitySet="PayType" />
+            <End Role="UserProfiles" EntitySet="UserProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="fk_user_userType" Association="Self.fk_user_userType">
+            <End Role="UserType" EntitySet="UserType" />
+            <End Role="UserProfiles" EntitySet="UserProfiles" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="StudentLinkUpDB1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Campu">
+          <Key>
+            <PropertyRef Name="campusID" />
+          </Key>
+          <Property Name="campusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="campusName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="UserProfiles" Relationship="Self.fk_user_campus" FromRole="Campus" ToRole="UserProfiles" />
+        </EntityType>
+        <EntityType Name="Condition">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="condition1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="LearningMaterials" Relationship="Self.fk_learningMaterial_condition" FromRole="Condition" ToRole="LearningMaterial" />
+        </EntityType>
+        <EntityType Name="ItemType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="itemType1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="LearningMaterials" Relationship="Self.fk_learningMaterial_materialType" FromRole="ItemType" ToRole="LearningMaterial" />
+        </EntityType>
+        <EntityType Name="LearningMaterial">
+          <Key>
+            <PropertyRef Name="materialID" />
+          </Key>
+          <Property Name="materialID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="materialType" Type="Int32" Nullable="false" />
+          <Property Name="username" Type="Int32" Nullable="false" />
+          <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="author" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="publisher" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="edition" Type="Int32" />
+          <Property Name="price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="condition" Type="Int32" Nullable="false" />
+          <Property Name="moduleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="available" Type="Boolean" />
+          <Property Name="Bookimage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="enabled" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Condition1" Relationship="Self.fk_learningMaterial_condition" FromRole="LearningMaterial" ToRole="Condition" />
+          <NavigationProperty Name="ItemType" Relationship="Self.fk_learningMaterial_materialType" FromRole="LearningMaterial" ToRole="ItemType" />
+          <NavigationProperty Name="Module" Relationship="Self.fk_learningMaterial_modules" FromRole="LearningMaterial" ToRole="Modules" />
+          <NavigationProperty Name="UserProfile" Relationship="Self.fk_learningMaterial_userProfile" FromRole="LearningMaterial" ToRole="UserProfiles" />
+          <NavigationProperty Name="Meetings" Relationship="Self.fk_meeting_learningMaterial" FromRole="LearningMaterial" ToRole="Meetings" />
+          <NavigationProperty Name="Receipts" Relationship="Self.fk_receipt_learningMaterial" FromRole="LearningMaterial" ToRole="Receipts" />
+        </EntityType>
+        <EntityType Name="Meeting">
+          <Key>
+            <PropertyRef Name="meetingID" />
+          </Key>
+          <Property Name="meetingID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="meetingLocation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="meetingDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="meetingTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="success" Type="Boolean" Nullable="false" />
+          <Property Name="userID_buyer" Type="Int32" Nullable="false" />
+          <Property Name="userID_seller" Type="Int32" Nullable="false" />
+          <Property Name="materialID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="LearningMaterial" Relationship="Self.fk_meeting_learningMaterial" FromRole="Meetings" ToRole="LearningMaterial" />
+          <NavigationProperty Name="UserProfile" Relationship="Self.fk_meeting_buyer" FromRole="Meetings" ToRole="UserProfiles" />
+          <NavigationProperty Name="UserProfile1" Relationship="Self.fk_meeting_seller" FromRole="Meetings" ToRole="UserProfiles" />
+          <NavigationProperty Name="Receipts" Relationship="Self.fk_receipt_meeting" FromRole="Meetings" ToRole="Receipts" />
+        </EntityType>
+        <EntityType Name="Module">
+          <Key>
+            <PropertyRef Name="moduleCode" />
+          </Key>
+          <Property Name="moduleCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="moduleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="LearningMaterials" Relationship="Self.fk_learningMaterial_modules" FromRole="Modules" ToRole="LearningMaterial" />
+        </EntityType>
+        <EntityType Name="PayType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="payType1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="UserProfiles" Relationship="Self.fk_user_payType" FromRole="PayType" ToRole="UserProfiles" />
+        </EntityType>
+        <EntityType Name="Receipt">
+          <Key>
+            <PropertyRef Name="receiptNum" />
+          </Key>
+          <Property Name="receiptNum" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="meetingID" Type="Int32" Nullable="false" />
+          <Property Name="itemName" Type="Int32" Nullable="false" />
+          <Property Name="total" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="meetingDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="meetingTime" Type="Time" Nullable="false" Precision="7" />
+          <NavigationProperty Name="LearningMaterial" Relationship="Self.fk_receipt_learningMaterial" FromRole="Receipts" ToRole="LearningMaterial" />
+          <NavigationProperty Name="Meeting" Relationship="Self.fk_receipt_meeting" FromRole="Receipts" ToRole="Meetings" />
+        </EntityType>
+        <EntityType Name="Review">
+          <Key>
+            <PropertyRef Name="reviewID" />
+          </Key>
+          <Property Name="reviewID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userID_Seller" Type="Int32" />
+          <Property Name="userID_Buyer" Type="Int32" />
+          <Property Name="rating" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="review1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="UserProfile" Relationship="Self.FK__Reviews__userID___625A9A57" FromRole="Reviews" ToRole="UserProfiles" />
+          <NavigationProperty Name="UserProfile1" Relationship="Self.FK__Reviews__userID___634EBE90" FromRole="Reviews" ToRole="UserProfiles" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="UserProfile">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="userFName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="userSName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="userPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="studentNum" Type="Int32" Nullable="false" />
+          <Property Name="campusID" Type="Int32" Nullable="false" />
+          <Property Name="areaCode" Type="Int32" Nullable="false" />
+          <Property Name="cellNum" Type="Int32" Nullable="false" />
+          <Property Name="ban" Type="Boolean" Nullable="false" />
+          <Property Name="yearOfStudy" Type="Int32" />
+          <Property Name="payType" Type="Int32" />
+          <Property Name="userType" Type="Int32" Nullable="false" />
+          <Property Name="UserIconName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="userDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="userUpVotes" Type="Int32" Nullable="false" />
+          <Property Name="userDownVotes" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Campu" Relationship="Self.fk_user_campus" FromRole="UserProfiles" ToRole="Campus" />
+          <NavigationProperty Name="LearningMaterials" Relationship="Self.fk_learningMaterial_userProfile" FromRole="UserProfiles" ToRole="LearningMaterial" />
+          <NavigationProperty Name="Meetings" Relationship="Self.fk_meeting_buyer" FromRole="UserProfiles" ToRole="Meetings" />
+          <NavigationProperty Name="Meetings1" Relationship="Self.fk_meeting_seller" FromRole="UserProfiles" ToRole="Meetings" />
+          <NavigationProperty Name="PayType1" Relationship="Self.fk_user_payType" FromRole="UserProfiles" ToRole="PayType" />
+          <NavigationProperty Name="Reviews" Relationship="Self.FK__Reviews__userID___625A9A57" FromRole="UserProfiles" ToRole="Reviews" />
+          <NavigationProperty Name="Reviews1" Relationship="Self.FK__Reviews__userID___634EBE90" FromRole="UserProfiles" ToRole="Reviews" />
+          <NavigationProperty Name="UserMessages" Relationship="Self.fk_message_reciever" FromRole="UserProfiles" ToRole="UserMessages" />
+          <NavigationProperty Name="UserMessages1" Relationship="Self.fk_message_sender" FromRole="UserProfiles" ToRole="UserMessages" />
+          <NavigationProperty Name="UserType1" Relationship="Self.fk_user_userType" FromRole="UserProfiles" ToRole="UserType" />
+        </EntityType>
+        <EntityType Name="UserType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userType1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="UserProfiles" Relationship="Self.fk_user_userType" FromRole="UserType" ToRole="UserProfiles" />
+        </EntityType>
+        <EntityType Name="UserMessage">
+          <Key>
+            <PropertyRef Name="messageID" />
+            <PropertyRef Name="senderID" />
+            <PropertyRef Name="recieverID" />
+            <PropertyRef Name="containedText" />
+            <PropertyRef Name="messageDate" />
+            <PropertyRef Name="messageTime" />
+          </Key>
+          <Property Name="messageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="senderID" Type="Int32" Nullable="false" />
+          <Property Name="recieverID" Type="Int32" Nullable="false" />
+          <Property Name="containedText" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="messageDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="messageTime" Type="Time" Nullable="false" Precision="7" />
+          <NavigationProperty Name="UserProfile" Relationship="Self.fk_message_reciever" FromRole="UserMessages" ToRole="UserProfiles" />
+          <NavigationProperty Name="UserProfile1" Relationship="Self.fk_message_sender" FromRole="UserMessages" ToRole="UserProfiles" />
+        </EntityType>
+        <Association Name="fk_user_campus">
+          <End Role="Campus" Type="Self.Campu" Multiplicity="1" />
+          <End Role="UserProfiles" Type="Self.UserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Campus">
+              <PropertyRef Name="campusID" />
+            </Principal>
+            <Dependent Role="UserProfiles">
+              <PropertyRef Name="campusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_learningMaterial_condition">
+          <End Role="Condition" Type="Self.Condition" Multiplicity="1" />
+          <End Role="LearningMaterial" Type="Self.LearningMaterial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Condition">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="LearningMaterial">
+              <PropertyRef Name="condition" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_learningMaterial_materialType">
+          <End Role="ItemType" Type="Self.ItemType" Multiplicity="1" />
+          <End Role="LearningMaterial" Type="Self.LearningMaterial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="LearningMaterial">
+              <PropertyRef Name="materialType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_learningMaterial_modules">
+          <End Role="Modules" Type="Self.Module" Multiplicity="1" />
+          <End Role="LearningMaterial" Type="Self.LearningMaterial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modules">
+              <PropertyRef Name="moduleCode" />
+            </Principal>
+            <Dependent Role="LearningMaterial">
+              <PropertyRef Name="moduleName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_learningMaterial_userProfile">
+          <End Role="UserProfiles" Type="Self.UserProfile" Multiplicity="1" />
+          <End Role="LearningMaterial" Type="Self.LearningMaterial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfiles">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="LearningMaterial">
+              <PropertyRef Name="username" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_meeting_learningMaterial">
+          <End Role="LearningMaterial" Type="Self.LearningMaterial" Multiplicity="1" />
+          <End Role="Meetings" Type="Self.Meeting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LearningMaterial">
+              <PropertyRef Name="materialID" />
+            </Principal>
+            <Dependent Role="Meetings">
+              <PropertyRef Name="materialID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_receipt_learningMaterial">
+          <End Role="LearningMaterial" Type="Self.LearningMaterial" Multiplicity="1" />
+          <End Role="Receipts" Type="Self.Receipt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LearningMaterial">
+              <PropertyRef Name="materialID" />
+            </Principal>
+            <Dependent Role="Receipts">
+              <PropertyRef Name="itemName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_meeting_buyer">
+          <End Role="UserProfiles" Type="Self.UserProfile" Multiplicity="1" />
+          <End Role="Meetings" Type="Self.Meeting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfiles">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="Meetings">
+              <PropertyRef Name="userID_buyer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_meeting_seller">
+          <End Role="UserProfiles" Type="Self.UserProfile" Multiplicity="1" />
+          <End Role="Meetings" Type="Self.Meeting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfiles">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="Meetings">
+              <PropertyRef Name="userID_seller" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_receipt_meeting">
+          <End Role="Meetings" Type="Self.Meeting" Multiplicity="1" />
+          <End Role="Receipts" Type="Self.Receipt" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Meetings">
+              <PropertyRef Name="meetingID" />
+            </Principal>
+            <Dependent Role="Receipts">
+              <PropertyRef Name="meetingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_user_payType">
+          <End Role="PayType" Type="Self.PayType" Multiplicity="0..1" />
+          <End Role="UserProfiles" Type="Self.UserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PayType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UserProfiles">
+              <PropertyRef Name="payType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reviews__userID___625A9A57">
+          <End Role="UserProfiles" Type="Self.UserProfile" Multiplicity="0..1" />
+          <End Role="Reviews" Type="Self.Review" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfiles">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="Reviews">
+              <PropertyRef Name="userID_Seller" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reviews__userID___634EBE90">
+          <End Role="UserProfiles" Type="Self.UserProfile" Multiplicity="0..1" />
+          <End Role="Reviews" Type="Self.Review" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfiles">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="Reviews">
+              <PropertyRef Name="userID_Buyer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_message_reciever">
+          <End Role="UserProfiles" Type="Self.UserProfile" Multiplicity="1" />
+          <End Role="UserMessages" Type="Self.UserMessage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfiles">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="UserMessages">
+              <PropertyRef Name="recieverID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_message_sender">
+          <End Role="UserProfiles" Type="Self.UserProfile" Multiplicity="1" />
+          <End Role="UserMessages" Type="Self.UserMessage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfiles">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="UserMessages">
+              <PropertyRef Name="senderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_user_userType">
+          <End Role="UserType" Type="Self.UserType" Multiplicity="1" />
+          <End Role="UserProfiles" Type="Self.UserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UserProfiles">
+              <PropertyRef Name="userType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="StudentLinkUpDB1Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Campus" EntityType="Self.Campu" />
+          <EntitySet Name="Conditions" EntityType="Self.Condition" />
+          <EntitySet Name="ItemTypes" EntityType="Self.ItemType" />
+          <EntitySet Name="LearningMaterials" EntityType="Self.LearningMaterial" />
+          <EntitySet Name="Meetings" EntityType="Self.Meeting" />
+          <EntitySet Name="Modules" EntityType="Self.Module" />
+          <EntitySet Name="PayTypes" EntityType="Self.PayType" />
+          <EntitySet Name="Receipts" EntityType="Self.Receipt" />
+          <EntitySet Name="Reviews" EntityType="Self.Review" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="UserProfiles" EntityType="Self.UserProfile" />
+          <EntitySet Name="UserTypes" EntityType="Self.UserType" />
+          <EntitySet Name="UserMessages" EntityType="Self.UserMessage" />
+          <AssociationSet Name="fk_user_campus" Association="Self.fk_user_campus">
+            <End Role="Campus" EntitySet="Campus" />
+            <End Role="UserProfiles" EntitySet="UserProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="fk_learningMaterial_condition" Association="Self.fk_learningMaterial_condition">
+            <End Role="Condition" EntitySet="Conditions" />
+            <End Role="LearningMaterial" EntitySet="LearningMaterials" />
+          </AssociationSet>
+          <AssociationSet Name="fk_learningMaterial_materialType" Association="Self.fk_learningMaterial_materialType">
+            <End Role="ItemType" EntitySet="ItemTypes" />
+            <End Role="LearningMaterial" EntitySet="LearningMaterials" />
+          </AssociationSet>
+          <AssociationSet Name="fk_learningMaterial_modules" Association="Self.fk_learningMaterial_modules">
+            <End Role="Modules" EntitySet="Modules" />
+            <End Role="LearningMaterial" EntitySet="LearningMaterials" />
+          </AssociationSet>
+          <AssociationSet Name="fk_learningMaterial_userProfile" Association="Self.fk_learningMaterial_userProfile">
+            <End Role="UserProfiles" EntitySet="UserProfiles" />
+            <End Role="LearningMaterial" EntitySet="LearningMaterials" />
+          </AssociationSet>
+          <AssociationSet Name="fk_meeting_learningMaterial" Association="Self.fk_meeting_learningMaterial">
+            <End Role="LearningMaterial" EntitySet="LearningMaterials" />
+            <End Role="Meetings" EntitySet="Meetings" />
+          </AssociationSet>
+          <AssociationSet Name="fk_receipt_learningMaterial" Association="Self.fk_receipt_learningMaterial">
+            <End Role="LearningMaterial" EntitySet="LearningMaterials" />
+            <End Role="Receipts" EntitySet="Receipts" />
+          </AssociationSet>
+          <AssociationSet Name="fk_meeting_buyer" Association="Self.fk_meeting_buyer">
+            <End Role="UserProfiles" EntitySet="UserProfiles" />
+            <End Role="Meetings" EntitySet="Meetings" />
+          </AssociationSet>
+          <AssociationSet Name="fk_meeting_seller" Association="Self.fk_meeting_seller">
+            <End Role="UserProfiles" EntitySet="UserProfiles" />
+            <End Role="Meetings" EntitySet="Meetings" />
+          </AssociationSet>
+          <AssociationSet Name="fk_receipt_meeting" Association="Self.fk_receipt_meeting">
+            <End Role="Meetings" EntitySet="Meetings" />
+            <End Role="Receipts" EntitySet="Receipts" />
+          </AssociationSet>
+          <AssociationSet Name="fk_user_payType" Association="Self.fk_user_payType">
+            <End Role="PayType" EntitySet="PayTypes" />
+            <End Role="UserProfiles" EntitySet="UserProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reviews__userID___625A9A57" Association="Self.FK__Reviews__userID___625A9A57">
+            <End Role="UserProfiles" EntitySet="UserProfiles" />
+            <End Role="Reviews" EntitySet="Reviews" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reviews__userID___634EBE90" Association="Self.FK__Reviews__userID___634EBE90">
+            <End Role="UserProfiles" EntitySet="UserProfiles" />
+            <End Role="Reviews" EntitySet="Reviews" />
+          </AssociationSet>
+          <AssociationSet Name="fk_message_reciever" Association="Self.fk_message_reciever">
+            <End Role="UserProfiles" EntitySet="UserProfiles" />
+            <End Role="UserMessages" EntitySet="UserMessages" />
+          </AssociationSet>
+          <AssociationSet Name="fk_message_sender" Association="Self.fk_message_sender">
+            <End Role="UserProfiles" EntitySet="UserProfiles" />
+            <End Role="UserMessages" EntitySet="UserMessages" />
+          </AssociationSet>
+          <AssociationSet Name="fk_user_userType" Association="Self.fk_user_userType">
+            <End Role="UserType" EntitySet="UserTypes" />
+            <End Role="UserProfiles" EntitySet="UserProfiles" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="StudentLinkUpDB1ModelStoreContainer" CdmEntityContainer="StudentLinkUpDB1Entities">
+          <EntitySetMapping Name="Campus">
+            <EntityTypeMapping TypeName="StudentLinkUpDB1Model.Campu">
+              <MappingFragment StoreEntitySet="Campus">
+                <ScalarProperty Name="campusID" ColumnName="campusID" />
+                <ScalarProperty Name="campusName" ColumnName="campusName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Conditions">
+            <EntityTypeMapping TypeName="StudentLinkUpDB1Model.Condition">
+              <MappingFragment StoreEntitySet="Condition">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="condition1" ColumnName="condition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ItemTypes">
+            <EntityTypeMapping TypeName="StudentLinkUpDB1Model.ItemType">
+              <MappingFragment StoreEntitySet="ItemType">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="itemType1" ColumnName="itemType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LearningMaterials">
+            <EntityTypeMapping TypeName="StudentLinkUpDB1Model.LearningMaterial">
+              <MappingFragment StoreEntitySet="LearningMaterial">
+                <ScalarProperty Name="materialID" ColumnName="materialID" />
+                <ScalarProperty Name="materialType" ColumnName="materialType" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="author" ColumnName="author" />
+                <ScalarProperty Name="publisher" ColumnName="publisher" />
+                <ScalarProperty Name="edition" ColumnName="edition" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="condition" ColumnName="condition" />
+                <ScalarProperty Name="moduleName" ColumnName="moduleName" />
+                <ScalarProperty Name="available" ColumnName="available" />
+                <ScalarProperty Name="Bookimage" ColumnName="Bookimage" />
+                <ScalarProperty Name="enabled" ColumnName="enabled" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Meetings">
+            <EntityTypeMapping TypeName="StudentLinkUpDB1Model.Meeting">
+              <MappingFragment StoreEntitySet="Meetings">
+                <ScalarProperty Name="meetingID" ColumnName="meetingID" />
+                <ScalarProperty Name="meetingLocation" ColumnName="meetingLocation" />
+                <ScalarProperty Name="meetingDate" ColumnName="meetingDate" />
+                <ScalarProperty Name="meetingTime" ColumnName="meetingTime" />
+                <ScalarProperty Name="success" ColumnName="success" />
+                <ScalarProperty Name="userID_buyer" ColumnName="userID_buyer" />
+                <ScalarProperty Name="userID_seller" ColumnName="userID_seller" />
+                <ScalarProperty Name="materialID" ColumnName="materialID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Modules">
+            <EntityTypeMapping TypeName="StudentLinkUpDB1Model.Module">
+              <MappingFragment StoreEntitySet="Modules">
+                <ScalarProperty Name="moduleCode" ColumnName="moduleCode" />
+                <ScalarProperty Name="moduleName" ColumnName="moduleName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PayTypes">
+            <EntityTypeMapping TypeName="StudentLinkUpDB1Model.PayType">
+              <MappingFragment StoreEntitySet="PayType">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="payType1" ColumnName="payType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Receipts">
+            <EntityTypeMapping TypeName="StudentLinkUpDB1Model.Receipt">
+              <MappingFragment StoreEntitySet="Receipts">
+                <ScalarProperty Name="receiptNum" ColumnName="receiptNum" />
+                <ScalarProperty Name="meetingID" ColumnName="meetingID" />
+                <ScalarProperty Name="itemName" ColumnName="itemName" />
+                <ScalarProperty Name="total" ColumnName="total" />
+                <ScalarProperty Name="meetingDate" ColumnName="meetingDate" />
+                <ScalarProperty Name="meetingTime" ColumnName="meetingTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reviews">
+            <EntityTypeMapping TypeName="StudentLinkUpDB1Model.Review">
+              <MappingFragment StoreEntitySet="Reviews">
+                <ScalarProperty Name="reviewID" ColumnName="reviewID" />
+                <ScalarProperty Name="userID_Seller" ColumnName="userID_Seller" />
+                <ScalarProperty Name="userID_Buyer" ColumnName="userID_Buyer" />
+                <ScalarProperty Name="rating" ColumnName="rating" />
+                <ScalarProperty Name="review1" ColumnName="review" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="StudentLinkUpDB1Model.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserProfiles">
+            <EntityTypeMapping TypeName="StudentLinkUpDB1Model.UserProfile">
+              <MappingFragment StoreEntitySet="UserProfiles">
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="userFName" ColumnName="userFName" />
+                <ScalarProperty Name="userSName" ColumnName="userSName" />
+                <ScalarProperty Name="userPassword" ColumnName="userPassword" />
+                <ScalarProperty Name="studentNum" ColumnName="studentNum" />
+                <ScalarProperty Name="campusID" ColumnName="campusID" />
+                <ScalarProperty Name="areaCode" ColumnName="areaCode" />
+                <ScalarProperty Name="cellNum" ColumnName="cellNum" />
+                <ScalarProperty Name="ban" ColumnName="ban" />
+                <ScalarProperty Name="yearOfStudy" ColumnName="yearOfStudy" />
+                <ScalarProperty Name="payType" ColumnName="payType" />
+                <ScalarProperty Name="userType" ColumnName="userType" />
+                <ScalarProperty Name="UserIconName" ColumnName="UserIconName" />
+                <ScalarProperty Name="userDeleted" ColumnName="userDeleted" />
+                <ScalarProperty Name="userUpVotes" ColumnName="userUpVotes" />
+                <ScalarProperty Name="userDownVotes" ColumnName="userDownVotes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserTypes">
+            <EntityTypeMapping TypeName="StudentLinkUpDB1Model.UserType">
+              <MappingFragment StoreEntitySet="UserType">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="userType1" ColumnName="userType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserMessages">
+            <EntityTypeMapping TypeName="StudentLinkUpDB1Model.UserMessage">
+              <MappingFragment StoreEntitySet="UserMessages">
+                <ScalarProperty Name="messageID" ColumnName="messageID" />
+                <ScalarProperty Name="senderID" ColumnName="senderID" />
+                <ScalarProperty Name="recieverID" ColumnName="recieverID" />
+                <ScalarProperty Name="containedText" ColumnName="containedText" />
+                <ScalarProperty Name="messageDate" ColumnName="messageDate" />
+                <ScalarProperty Name="messageTime" ColumnName="messageTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

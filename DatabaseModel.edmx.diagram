@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="01cd04477d0341baa80e09d3257fead8" Name="Diagram1">
+        <EntityTypeShape EntityType="StudentLinkUpDB1Model.Campu" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentLinkUpDB1Model.Condition" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentLinkUpDB1Model.ItemType" Width="1.5" PointX="3" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentLinkUpDB1Model.LearningMaterial" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentLinkUpDB1Model.Meeting" Width="1.5" PointX="7.5" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentLinkUpDB1Model.Module" Width="1.5" PointX="3" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentLinkUpDB1Model.PayType" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentLinkUpDB1Model.Receipt" Width="1.5" PointX="9.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentLinkUpDB1Model.Review" Width="1.5" PointX="5.25" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentLinkUpDB1Model.sysdiagram" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentLinkUpDB1Model.UserProfile" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentLinkUpDB1Model.UserType" Width="1.5" PointX="0.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudentLinkUpDB1Model.UserMessage" Width="1.5" PointX="5.25" PointY="12.625" IsExpanded="true" />
+        <AssociationConnector Association="StudentLinkUpDB1Model.fk_user_campus" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentLinkUpDB1Model.fk_learningMaterial_condition" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentLinkUpDB1Model.fk_learningMaterial_materialType" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentLinkUpDB1Model.fk_learningMaterial_modules" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentLinkUpDB1Model.fk_learningMaterial_userProfile" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentLinkUpDB1Model.fk_meeting_learningMaterial" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentLinkUpDB1Model.fk_receipt_learningMaterial" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentLinkUpDB1Model.fk_meeting_buyer" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentLinkUpDB1Model.fk_meeting_seller" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentLinkUpDB1Model.fk_receipt_meeting" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentLinkUpDB1Model.fk_user_payType" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentLinkUpDB1Model.FK__Reviews__userID___625A9A57" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentLinkUpDB1Model.FK__Reviews__userID___634EBE90" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentLinkUpDB1Model.fk_message_reciever" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentLinkUpDB1Model.fk_message_sender" ManuallyRouted="false" />
+        <AssociationConnector Association="StudentLinkUpDB1Model.fk_user_userType" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

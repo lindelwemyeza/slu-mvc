@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!-- Testing image Display -->
+<html lang="en-za">
+	<head>
+		<title>Testing</title>
+		
+	</head>
+	<body bgColor = "white">
+	
+		<script>
+			var names = [];
+			var input = prompt("Enter List of names to be sorted. Press enter to end prompt: ");
+			while(input!="")
+			{
+				names.push(input);
+				input = prompt("Enter List of names to be sorted. Press enter to end prompt: ");
+			}
+			
+			for(var  i=0;i<names.length;i++)
+			{
+				names.sort();
+				document.write((i+1)+". "+names[i]+"</br>");
+			}
+		</script>
+	</body>
+</html>
