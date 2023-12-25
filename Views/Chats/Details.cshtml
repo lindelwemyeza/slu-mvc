@@ -1,0 +1,42 @@
+﻿@model StudentLinkUp_MVC_.UserMessage
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>UserMessage</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.UserProfile.username)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.UserProfile.username)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.UserProfile1.username)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.UserProfile1.username)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

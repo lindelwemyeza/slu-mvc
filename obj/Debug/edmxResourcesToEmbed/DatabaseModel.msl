@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="StudentLinkUpDB1ModelStoreContainer" CdmEntityContainer="StudentLinkUpDB1Entities">
+    <EntitySetMapping Name="Campus">
+      <EntityTypeMapping TypeName="StudentLinkUpDB1Model.Campu">
+        <MappingFragment StoreEntitySet="Campus">
+          <ScalarProperty Name="campusID" ColumnName="campusID" />
+          <ScalarProperty Name="campusName" ColumnName="campusName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Conditions">
+      <EntityTypeMapping TypeName="StudentLinkUpDB1Model.Condition">
+        <MappingFragment StoreEntitySet="Condition">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="condition1" ColumnName="condition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ItemTypes">
+      <EntityTypeMapping TypeName="StudentLinkUpDB1Model.ItemType">
+        <MappingFragment StoreEntitySet="ItemType">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="itemType1" ColumnName="itemType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LearningMaterials">
+      <EntityTypeMapping TypeName="StudentLinkUpDB1Model.LearningMaterial">
+        <MappingFragment StoreEntitySet="LearningMaterial">
+          <ScalarProperty Name="materialID" ColumnName="materialID" />
+          <ScalarProperty Name="materialType" ColumnName="materialType" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="author" ColumnName="author" />
+          <ScalarProperty Name="publisher" ColumnName="publisher" />
+          <ScalarProperty Name="edition" ColumnName="edition" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="condition" ColumnName="condition" />
+          <ScalarProperty Name="moduleName" ColumnName="moduleName" />
+          <ScalarProperty Name="available" ColumnName="available" />
+          <ScalarProperty Name="Bookimage" ColumnName="Bookimage" />
+          <ScalarProperty Name="enabled" ColumnName="enabled" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Meetings">
+      <EntityTypeMapping TypeName="StudentLinkUpDB1Model.Meeting">
+        <MappingFragment StoreEntitySet="Meetings">
+          <ScalarProperty Name="meetingID" ColumnName="meetingID" />
+          <ScalarProperty Name="meetingLocation" ColumnName="meetingLocation" />
+          <ScalarProperty Name="meetingDate" ColumnName="meetingDate" />
+          <ScalarProperty Name="meetingTime" ColumnName="meetingTime" />
+          <ScalarProperty Name="success" ColumnName="success" />
+          <ScalarProperty Name="userID_buyer" ColumnName="userID_buyer" />
+          <ScalarProperty Name="userID_seller" ColumnName="userID_seller" />
+          <ScalarProperty Name="materialID" ColumnName="materialID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Modules">
+      <EntityTypeMapping TypeName="StudentLinkUpDB1Model.Module">
+        <MappingFragment StoreEntitySet="Modules">
+          <ScalarProperty Name="moduleCode" ColumnName="moduleCode" />
+          <ScalarProperty Name="moduleName" ColumnName="moduleName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PayTypes">
+      <EntityTypeMapping TypeName="StudentLinkUpDB1Model.PayType">
+        <MappingFragment StoreEntitySet="PayType">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="payType1" ColumnName="payType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Receipts">
+      <EntityTypeMapping TypeName="StudentLinkUpDB1Model.Receipt">
+        <MappingFragment StoreEntitySet="Receipts">
+          <ScalarProperty Name="receiptNum" ColumnName="receiptNum" />
+          <ScalarProperty Name="meetingID" ColumnName="meetingID" />
+          <ScalarProperty Name="itemName" ColumnName="itemName" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="meetingDate" ColumnName="meetingDate" />
+          <ScalarProperty Name="meetingTime" ColumnName="meetingTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reviews">
+      <EntityTypeMapping TypeName="StudentLinkUpDB1Model.Review">
+        <MappingFragment StoreEntitySet="Reviews">
+          <ScalarProperty Name="reviewID" ColumnName="reviewID" />
+          <ScalarProperty Name="userID_Seller" ColumnName="userID_Seller" />
+          <ScalarProperty Name="userID_Buyer" ColumnName="userID_Buyer" />
+          <ScalarProperty Name="rating" ColumnName="rating" />
+          <ScalarProperty Name="review1" ColumnName="review" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="StudentLinkUpDB1Model.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserProfiles">
+      <EntityTypeMapping TypeName="StudentLinkUpDB1Model.UserProfile">
+        <MappingFragment StoreEntitySet="UserProfiles">
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="userFName" ColumnName="userFName" />
+          <ScalarProperty Name="userSName" ColumnName="userSName" />
+          <ScalarProperty Name="userPassword" ColumnName="userPassword" />
+          <ScalarProperty Name="studentNum" ColumnName="studentNum" />
+          <ScalarProperty Name="campusID" ColumnName="campusID" />
+          <ScalarProperty Name="areaCode" ColumnName="areaCode" />
+          <ScalarProperty Name="cellNum" ColumnName="cellNum" />
+          <ScalarProperty Name="ban" ColumnName="ban" />
+          <ScalarProperty Name="yearOfStudy" ColumnName="yearOfStudy" />
+          <ScalarProperty Name="payType" ColumnName="payType" />
+          <ScalarProperty Name="userType" ColumnName="userType" />
+          <ScalarProperty Name="UserIconName" ColumnName="UserIconName" />
+          <ScalarProperty Name="userDeleted" ColumnName="userDeleted" />
+          <ScalarProperty Name="userUpVotes" ColumnName="userUpVotes" />
+          <ScalarProperty Name="userDownVotes" ColumnName="userDownVotes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserTypes">
+      <EntityTypeMapping TypeName="StudentLinkUpDB1Model.UserType">
+        <MappingFragment StoreEntitySet="UserType">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="userType1" ColumnName="userType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserMessages">
+      <EntityTypeMapping TypeName="StudentLinkUpDB1Model.UserMessage">
+        <MappingFragment StoreEntitySet="UserMessages">
+          <ScalarProperty Name="messageID" ColumnName="messageID" />
+          <ScalarProperty Name="senderID" ColumnName="senderID" />
+          <ScalarProperty Name="recieverID" ColumnName="recieverID" />
+          <ScalarProperty Name="containedText" ColumnName="containedText" />
+          <ScalarProperty Name="messageDate" ColumnName="messageDate" />
+          <ScalarProperty Name="messageTime" ColumnName="messageTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

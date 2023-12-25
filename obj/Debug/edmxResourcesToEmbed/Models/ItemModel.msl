@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ItemsModelStoreContainer" CdmEntityContainer="StudentLinkUpDBEntities">
+    <EntitySetMapping Name="LearningMaterials">
+      <EntityTypeMapping TypeName="ItemsModel.LearningMaterial">
+        <MappingFragment StoreEntitySet="LearningMaterial">
+          <ScalarProperty Name="lmNr" ColumnName="lmNr" />
+          <ScalarProperty Name="lmType" ColumnName="lmType" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="lmTitle" ColumnName="lmTitle" />
+          <ScalarProperty Name="author" ColumnName="author" />
+          <ScalarProperty Name="publisher" ColumnName="publisher" />
+          <ScalarProperty Name="edition" ColumnName="edition" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="condition" ColumnName="condition" />
+          <ScalarProperty Name="moduleCode" ColumnName="moduleCode" />
+          <ScalarProperty Name="available" ColumnName="available" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

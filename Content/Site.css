@@ -1,0 +1,70 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background-image: linear-gradient(60deg,#0026ff,#0094ff,#00ffff);
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: azure;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.navbar-inverse .navbar-toggle:hover,
+.navbar-inverse .navbar-toggle:focus {
+    background-color: #777;
+    border-color: #fff
+}
+
+img {
+    image-rendering:auto;
+}
+
+.filter-container {
+    padding-top: 12px;
+}
+
+.grid-item {
+    width:min-content;
+}
+
+.grid-container {
+    width: stretch;
+    display: grid;
+}
+
+.icon-navigation {
+    
+}
+
+#linkup-logo {
+    min-width:fit-content;
+}
+
+#welcome {
+    align-content:start;
+}
+
+#student {
+    font-size:48px;
+    align-content:end;
+}
+
+.logo-item-3 {
+    font-family:'Freestyle Script';
+}
