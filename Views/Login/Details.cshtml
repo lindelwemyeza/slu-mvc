@@ -1,0 +1,115 @@
+﻿@model StudentLinkUp_MVC_.UserProfile
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>UserProfile</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.username)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.userFName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.userFName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.userSName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.userSName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.userPassword)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.userPassword)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.studentNum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.studentNum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.areaCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.areaCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cellNum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cellNum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ban)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ban)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.yearOfStudy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.yearOfStudy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Campu.campusName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Campu.campusName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PayType1.payType1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PayType1.payType1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserType1.userType1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserType1.userType1)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.userID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

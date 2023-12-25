@@ -1,0 +1,37 @@
+﻿@model IEnumerable<StudentLinkUp_MVC_.Module>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Module Code
+        </th>
+        <th>
+            Module Name
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.moduleCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.moduleName)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { id=item.moduleCode })
+        </td>
+    </tr>
+}
+
+</table>

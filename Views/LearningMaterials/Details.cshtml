@@ -1,0 +1,135 @@
+﻿@model StudentLinkUp_MVC_.LearningMaterial
+
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>LearningMaterial</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.author)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.author)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.publisher)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.publisher)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.edition)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.edition)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.available)
+        </dt>
+
+        <dd>
+            @Html.DisplayTextFor(model => model.available)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bookimage)
+        </dt>
+
+        <dd>
+            <img src="@("~/Image/" + Html.DisplayTextFor(model => model.Bookimage))" alt="" width="200" height="200" />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Condition1.condition1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Condition1.condition1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemType.itemType1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemType.itemType1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Module.moduleName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Module.moduleName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserProfile.username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserProfile.username)
+        </dd>
+
+    </dl>
+</div>
+    @{
+        String materialOwner = Html.DisplayTextFor(model => model.username).ToString();
+        String materialID = Html.DisplayTextFor(model => model.materialID).ToString();
+       
+        if (SignInManager.signedIn.Count != 0)
+        {
+            UserProfile user = (UserProfile)SignInManager.signedIn.Peek();
+            if ((user.userID.ToString()).Equals(materialOwner))
+            {
+                <p>
+                <h4>
+                    <a href="https://localhost:44387/LearningMaterials/Edit/@(materialID)">Edit</a>
+                </h4>
+                    </p>
+            }
+            else
+            {
+                <p>
+                @Html.ActionLink("BUY", "Create", "Meetings")
+                    </p>
+                MeetingsManager.AddMaterial(Model);
+                MeetingsManager.AddParticipant(Model.UserProfile);
+            }
+        }
+        else
+        {
+            <p>
+            @Html.ActionLink("BUY", "LogIn", "Login")
+                </p>
+        }
+    }

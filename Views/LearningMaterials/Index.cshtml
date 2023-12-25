@@ -1,0 +1,63 @@
+﻿@model IEnumerable<StudentLinkUp_MVC_.LearningMaterial>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (@Html.BeginForm("Index", "LearningMaterials", FormMethod.Get))
+{
+    <br/>
+    <p align="right" class="filter-container">
+        Type @Html.DropDownList("materialType", "All")
+        <input type="submit" value="filter" />
+    </p>
+}
+
+<h2>Learning Material</h2>
+
+<hr/>
+
+<div class="grid-container" align="center">
+    @foreach (var item in Model)
+    {
+        string href = "";
+        int usrID = item.materialID;
+        href = "https://localhost:44387/LearningMaterials/Details/" + usrID;
+        string imageURL = "C:\\Users\\Lindelwe\\Documents\\WRRV301\\Implementation\\StudentLinkUp(MVC)\\Image\\";
+
+        <div class"grid-item">
+            <a href="@(href)">
+                <img src="@(item.Bookimage)" alt="" width="300" height="250" />
+             </a>
+                <br />
+                <p>
+                    @if (item.edition != null)
+                    {
+                    <p>
+                        @Html.DisplayFor(modelItem => item.author) - @Html.DisplayFor(modelItem => item.title) @Html.DisplayFor(modelItem => item.edition)E
+                    </p>
+                }
+                else
+                {
+                    <p>
+                        @Html.DisplayFor(modelItem => item.author) - @Html.DisplayFor(modelItem => item.title) @Html.DisplayFor(modelItem => item.edition)
+                    </p>
+                }
+
+            @if (item.price != 0)
+            { 
+                <p>R @Html.DisplayFor(modelItem => item.price)</p>
+            }
+            else
+                {
+                    <p>Free</p>
+                }
+                    <p>
+                        @Html.DisplayFor(modelItem => item.UserProfile.username)
+                </p>
+        </div>
+            <br />
+    }
+
+</div>

@@ -1,0 +1,54 @@
+﻿@model IEnumerable<StudentLinkUp_MVC_.Receipt>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>View Transactions</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.LearningMaterial.title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.meetingDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.meetingTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Meeting.meetingLocation)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    UserProfile user = (UserProfile)SignInManager.signedIn.Peek();
+    StudentLinkUpDBEntities db = new StudentLinkUpDBEntities();
+    Meeting meeting = db.Meetings.Find(item.meetingID);
+    LearningMaterial material = db.LearningMaterials.Find(meeting.materialID);
+    if (user.userID == meeting.userID_buyer || user.userID == meeting.userID_seller)
+    {
+        <tr>
+            <td>
+                @(material.title)
+            </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.meetingDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.meetingTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Meeting.meetingLocation)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { id = item.receiptNum })
+        </td>
+    </tr>
+    }
+}
+
+</table>

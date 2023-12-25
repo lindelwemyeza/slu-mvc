@@ -1,0 +1,120 @@
+﻿@model StudentLinkUp_MVC_.UserProfile
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>UserProfile</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.username)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.userFName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.userFName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.userSName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.userSName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.userPassword)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.userPassword)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.studentNum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.studentNum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.areaCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.areaCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cellNum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cellNum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ban)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ban)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.yearOfStudy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.yearOfStudy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Campu.campusName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Campu.campusName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PayType1.payType1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PayType1.payType1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserType1.userType1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserType1.userType1)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+        </div>
+    }
+</div>

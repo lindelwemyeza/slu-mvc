@@ -1,0 +1,99 @@
+﻿@model IEnumerable<StudentLinkUp_MVC_.UserProfile>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.userFName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.userSName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.userPassword)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.studentNum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.areaCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cellNum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ban)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.yearOfStudy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Campu.campusName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PayType1.payType1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserType1.userType1)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.username)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.userFName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.userSName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.userPassword)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.studentNum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.areaCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cellNum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ban)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.yearOfStudy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Campu.campusName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PayType1.payType1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserType1.userType1)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.userID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.userID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.userID })
+        </td>
+    </tr>
+}
+
+</table>

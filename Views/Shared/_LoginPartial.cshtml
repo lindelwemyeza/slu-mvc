@@ -1,0 +1,25 @@
+﻿@using StudentLinkUp_MVC_.Models
+@using StudentLinkUp_MVC_.Controllers
+
+    @if (!SignInManager.isEmpty())
+    {
+        UserProfile user = (UserProfile)SignInManager.signedIn.Peek();
+        using (Html.BeginForm("LogOut", "Login", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+        {
+                        @Html.AntiForgeryToken()
+
+                        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a href="\UserProfiles\Edit\@(user.userID)">@("Hi " + user.userFName + "!")</a>
+            </li>
+            <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+        </ul>
+                    }
+                }
+                else
+                {
+        <ul class="nav navbar-nav navbar-right">
+            <li>@Html.ActionLink("Register", "Create", "Login", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+            <li>@Html.ActionLink("Log in", "LogIn", "LogIn", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        </ul>
+    }
