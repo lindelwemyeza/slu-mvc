@@ -1,0 +1,1041 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SenseNet.BlobStorage</name>
+    </assembly>
+    <members>
+        <member name="T:SenseNet.ContentRepository.Storage.BinaryDataValue">
+            <summary>
+            Encapsulates identifiers and raw values for a binary property.
+            </summary>
+        </member>
+        <member name="P:SenseNet.ContentRepository.Storage.BinaryDataValue.Id">
+            <summary>
+            Binary property id.
+            </summary>
+        </member>
+        <member name="P:SenseNet.ContentRepository.Storage.BinaryDataValue.FileId">
+            <summary>
+            File row id in the metadata database.
+            </summary>
+        </member>
+        <member name="P:SenseNet.ContentRepository.Storage.BinaryDataValue.Size">
+            <summary>
+            Size of the full binary stream.
+            </summary>
+        </member>
+        <member name="P:SenseNet.ContentRepository.Storage.BinaryDataValue.FileName">
+            <summary>
+            Binary file name.
+            </summary>
+        </member>
+        <member name="P:SenseNet.ContentRepository.Storage.BinaryDataValue.ContentType">
+            <summary>
+            Binary content type (MIME type).
+            </summary>
+        </member>
+        <member name="P:SenseNet.ContentRepository.Storage.BinaryDataValue.Checksum">
+            <summary>
+            Binary checksum (currently not used and empty).
+            </summary>
+        </member>
+        <member name="P:SenseNet.ContentRepository.Storage.BinaryDataValue.Stream">
+            <summary>
+            Binary data stream.
+            </summary>
+        </member>
+        <member name="P:SenseNet.ContentRepository.Storage.BinaryDataValue.Timestamp">
+            <summary>
+            Database timestamp of the binary row creation.
+            </summary>
+        </member>
+        <member name="P:SenseNet.ContentRepository.Storage.BinaryDataValue.BlobProviderName">
+            <summary>
+            Name of the blob provider that was stores the binary data.
+            </summary>
+        </member>
+        <member name="P:SenseNet.ContentRepository.Storage.BinaryDataValue.BlobProviderData">
+            <summary>
+            Provider-specific blob metadata.
+            </summary>
+        </member>
+        <member name="P:SenseNet.ContentRepository.Storage.BinaryDataValue.IsEmpty">
+            <summary>
+            Gets a value indicating whether this binary data object is empty or not.
+            </summary>
+        </member>
+        <member name="T:SenseNet.ContentRepository.Storage.BlobStorageComponents">
+            <summary>
+            Contains provider instances for the blob storage.
+            </summary>
+        </member>
+        <member name="P:SenseNet.ContentRepository.Storage.BlobStorageComponents.DataProvider">
+            <summary>
+            Gets or sets the blob storage metadata provider instance used by the blob storage component.
+            </summary>
+        </member>
+        <member name="P:SenseNet.ContentRepository.Storage.BlobStorageComponents.ProviderSelector">
+            <summary>
+            Gets or sets the globally used IBlobProviderSelector instance.
+            </summary>
+        </member>
+        <member name="T:SenseNet.ContentRepository.Storage.Data.BlobProviderStore">
+            <summary>
+            <inheritdoc cref="T:SenseNet.ContentRepository.Storage.Data.IBlobProviderStore"/>
+            </summary>
+        </member>
+        <member name="T:SenseNet.ContentRepository.Storage.Data.BlobStorage">
+            <summary>
+            Encapsulates all binary-related storage operations in the Content Repository.
+            </summary>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.BlobStorage.InsertBinaryPropertyAsync(SenseNet.ContentRepository.Storage.BinaryDataValue,System.Int32,System.Int32,System.Boolean,SenseNet.ContentRepository.Storage.Data.SnDataContext)">
+            <summary>
+            Inserts a new binary record into the metadata database containing a new or an already existing file id,
+            removing the previous record if the content is not new.
+            </summary>
+            <param name="value">Binary data to insert.</param>
+            <param name="versionId">Content version id.</param>
+            <param name="propertyTypeId">Binary property type id.</param>
+            <param name="isNewNode">Whether this value belongs to a new or an existing node.</param>
+            <param name="dataContext">Database accessor object.</param>
+            <returns>A Task that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.BlobStorage.UpdateBinaryPropertyAsync(SenseNet.ContentRepository.Storage.BinaryDataValue,SenseNet.ContentRepository.Storage.Data.SnDataContext)">
+            <summary>
+            Updates an existing binary property value in the database and the blob storage.
+            </summary>
+            <param name="value">Binary data to update.</param>
+            <param name="dataContext">Database accessor object.</param>
+            <returns>A Task that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.BlobStorage.DeleteBinaryPropertyAsync(System.Int32,System.Int32,SenseNet.ContentRepository.Storage.Data.SnDataContext)">
+            <summary>
+            Deletes a binary property value from the metadata database, making the corresponding blob storage entry orphaned.
+            </summary>
+            <param name="versionId">Content version id.</param>
+            <param name="propertyTypeId">Binary property type id.</param>
+            <param name="dataContext">Database accessor object.</param>
+            <returns>A Task that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.BlobStorage.DeleteBinaryPropertiesAsync(System.Collections.Generic.IEnumerable{System.Int32},SenseNet.ContentRepository.Storage.Data.SnDataContext)">
+            <summary>
+            Deletes all binary properties of the requested versions.
+            </summary>
+            <param name="versionIds">VersionId set.</param>
+            <param name="dataContext">Database accessor object.</param>
+            <returns>A Task that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.BlobStorage.GetBlobStorageContextAsync(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Returns a context object that holds provider-specific data for blob storage operations.
+            </summary>
+            <param name="fileId">File identifier.</param>
+            <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.BlobStorage.GetBlobStorageContextAsync(System.Int32,System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+            Returns a context object that holds provider-specific data for blob storage operations.
+            </summary>
+            <param name="fileId">File identifier.</param>
+            <param name="clearStream">Whether the blob provider should clear the stream during assembling the context.</param>
+            <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.BlobStorage.GetBlobStorageContextAsync(System.Int32,System.Boolean,System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Returns a context object that holds provider-specific data for blob storage operations.
+            </summary>
+            <param name="fileId">File identifier.</param>
+            <param name="clearStream">Whether the blob provider should clear the stream during assembling the context.</param>
+            <param name="versionId">Content version id.</param>
+            <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.BlobStorage.GetBlobStorageContextAsync(System.Int32,System.Boolean,System.Int32,System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Returns a context object that holds provider-specific data for blob storage operations.
+            </summary>
+            <param name="fileId">File identifier.</param>
+            <param name="clearStream">Whether the blob provider should clear the stream during assembling the context.</param>
+            <param name="versionId">Content version id.</param>
+            <param name="propertyTypeId">Binary property type id.</param>
+            <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.BlobStorage.LoadBinaryPropertyAsync(System.Int32,System.Int32,SenseNet.ContentRepository.Storage.Data.SnDataContext)">
+            <summary>
+            Loads binary property object without the stream by the given parameters.
+            </summary>
+            <param name="versionId">Content version id.</param>
+            <param name="propertyTypeId">Binary property type id.</param>
+            <param name="dataContext">Database accessor object.</param>
+            <returns>A Task that represents the asynchronous operation 
+            containing the loaded <see cref="T:SenseNet.ContentRepository.Storage.BinaryDataValue"/> instance or null.</returns>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.BlobStorage.LoadBinaryCacheEntityAsync(System.Int32,System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Loads a cache item into memory that either contains the raw binary (if its size fits into the limit) or
+            just the blob metadata pointing to the blob storage.
+            </summary>
+            <param name="versionId">Content version id.</param>
+            <param name="propertyTypeId">Binary property type id.</param>
+            <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+            <returns>A Task that represents the asynchronous operation 
+            containig the loaded <see cref="T:SenseNet.ContentRepository.Storage.Data.BinaryCacheEntity"/> instance or null.</returns>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.BlobStorage.LoadBinaryCacheEntityAsync(System.Int32,System.Int32,SenseNet.ContentRepository.Storage.Data.SnDataContext)">
+            <summary>
+            Loads a cache item into memory that either contains the raw binary (if its size fits into the limit) or
+            just the blob metadata pointing to the blob storage.
+            </summary>
+            <param name="versionId">Content version id.</param>
+            <param name="propertyTypeId">Binary property type id.</param>
+            <param name="dataContext">Database accessor object.</param>
+            <returns>A Task that represents the asynchronous operation 
+            containig the loaded <see cref="T:SenseNet.ContentRepository.Storage.Data.BinaryCacheEntity"/> instance or null.</returns>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.BlobStorage.LoadBinaryFragmentAsync(System.Int32,System.Int64,System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Loads a segment from the binary data beginning at the specified position.
+            </summary>
+            <param name="fileId">File record identifier.</param>
+            <param name="position">Starting position of the segment.</param>
+            <param name="count">Number of bytes to load.</param>
+            <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+            <returns>A Task that represents the asynchronous operation containing
+            a byte array containing the requested number of bytes (or less if there is not enough in the binary data).</returns>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.BlobStorage.StartChunkAsync(System.Int32,System.Int32,System.Int64,System.Threading.CancellationToken)">
+            <summary>
+            Starts a chunked save operation on an existing content. It does not write any binary data 
+            to the storage, it only makes prerequisite operations - e.g. allocates a new slot in the storage.
+            </summary>
+            <param name="versionId">Content version id.</param>
+            <param name="propertyTypeId">Binary property type id.</param>
+            <param name="fullSize">Full size (stream length) of the binary value.</param>
+            <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+            <returns>A Task that represents the asynchronous operation containing a token with
+            all the information (db record ids) that identify a single entry in the blob storage.</returns>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.BlobStorage.WriteChunkAsync(System.Int32,System.String,System.Byte[],System.Int64,System.Int64,System.Threading.CancellationToken)">
+            <summary>
+            Writes a byte array to the blob entry specified by the provided token.
+            </summary>
+            <param name="versionId">Content version id.</param>
+            <param name="token">Blob token provided by a preliminary request.</param>
+            <param name="buffer">Byte array to write.</param>
+            <param name="offset">Starting position.</param>
+            <param name="fullSize">Full size of the whole stream.</param>
+            <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.BlobStorage.CommitChunkAsync(System.Int32,System.Int32,System.String,System.Int64,System.Threading.CancellationToken)">
+            <summary>
+            Finalizes a chunked save operation.
+            </summary>
+            <param name="versionId">Content version id.</param>
+            <param name="propertyTypeId">Binary property type id.</param>
+            <param name="token">Blob token provided by a preliminary request.</param>
+            <param name="fullSize">Full size (stream length) of the binary value.</param>
+            <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+            <returns>A Task that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.BlobStorage.CommitChunkAsync(System.Int32,System.Int32,System.String,System.Int64,SenseNet.ContentRepository.Storage.BinaryDataValue,System.Threading.CancellationToken)">
+            <summary>
+            Finalizes a chunked save operation.
+            </summary>
+            <param name="versionId">Content version id.</param>
+            <param name="propertyTypeId">Binary property type id.</param>
+            <param name="token">Blob token provided by a preliminary request.</param>
+            <param name="fullSize">Full size (stream length) of the binary value.</param>
+            <param name="source">Binary data containing metadata (e.g. content type).</param>
+            <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+            <returns>A Task that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.BlobStorage.CopyFromStreamAsync(System.Int32,System.String,System.IO.Stream,System.Threading.CancellationToken)">
+            <summary>
+            Writes an input stream to an entry in the blob storage specified by the provided token.
+            </summary>
+            <param name="versionId">Content version id.</param>
+            <param name="token">Blob token provided by a preliminary request.</param>
+            <param name="input">The whole stream to write.</param>
+            <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.BlobStorage.CleanupFilesSetFlagAsync(System.Threading.CancellationToken)">
+            <summary>
+            Marks orphaned file records (the ones that do not have a referencing binary record anymore) as Deleted.
+            Marks only files that were created more than 30 minutes ago.
+            </summary>
+            <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+            <returns>A Task that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.BlobStorage.CleanupFilesSetFlagImmediatelyAsync(System.Threading.CancellationToken)">
+            <summary>
+            Marks orphaned file records (the ones that do not have a referencing binary record anymore) as Deleted.
+            </summary>
+            <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+            <returns>A Task that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.BlobStorage.CleanupFilesAsync(System.Threading.CancellationToken)">
+            <summary>
+            Deletes one record that is marked as deleted from the metadata database and also from the blob storage.
+            </summary>
+            <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+            <returns>A Task that represents the asynchronous operation containing a boolean value 
+            that is true if there was at least one row that was deleted.</returns>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.BlobStorage.CleanupAllFilesAsync(System.Threading.CancellationToken)">
+            <summary>
+            Deletes all records that are marked as deleted from the metadata database and also from the blob storage.
+            </summary>
+            <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+            <returns>A Task that represents the asynchronous operation.</returns>
+        </member>
+        <member name="P:SenseNet.ContentRepository.Storage.Data.BlobStorage.BuiltInProvider">
+            <summary>
+            Gets an instance of the built-in provider.
+            </summary>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.BlobStorage.GetProvider(System.Int64)">
+            <summary>
+            Gets a provider based on the binary size and the available blob providers in the system.
+            </summary>
+            <param name="fullSize">Full binary length.</param>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.BlobStorage.GetProvider(System.String)">
+            <summary>
+            Gets the blob provider instance with the specified name. Default is the built-in provider.
+            </summary>
+        </member>
+        <member name="T:SenseNet.ContentRepository.Storage.Data.BlobStorageClient">
+            <summary>
+            Entry point for accessing the blob storage directly. Most of the methods here require a preliminary 
+            request to the portal to gain access to a token that identifies the blob you want to work with.
+            </summary>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.BlobStorageClient.GetStreamForReadAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Gets a readonly stream that contains a blob entry in the blob storage.
+            </summary>
+            <param name="token">Blob token provided by a preliminary request.</param>
+            <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+            <returns>A Task that represents the asynchronous operation containing
+            a readonly stream that comes from the blob storage directly.</returns>
+        </member>
+        <member name="T:SenseNet.ContentRepository.Storage.Data.BlobStorageContext">
+            <summary>
+            Holds provider-specific context information for binary operations.
+            </summary>
+        </member>
+        <member name="P:SenseNet.ContentRepository.Storage.Data.BlobStorageContext.VersionId">
+            <summary>
+            Content version id. Warning: this value is valid only when calling the following BlobProvider method: 
+            Write(BlobStorageContext context, long offset, byte[] buffer)
+            </summary>
+        </member>
+        <member name="P:SenseNet.ContentRepository.Storage.Data.BlobStorageContext.PropertyTypeId">
+            <summary>
+            Binary property type id. Warning: this value is valid only when calling the following BlobProvider method: 
+            Write(BlobStorageContext context, long offset, byte[] buffer)
+            </summary>
+        </member>
+        <member name="P:SenseNet.ContentRepository.Storage.Data.BlobStorageContext.FileId">
+            <summary>
+            File identifier.
+            </summary>
+        </member>
+        <member name="P:SenseNet.ContentRepository.Storage.Data.BlobStorageContext.Length">
+            <summary>
+            Binary data full length.
+            </summary>
+        </member>
+        <member name="P:SenseNet.ContentRepository.Storage.Data.BlobStorageContext.Provider">
+            <summary>
+            Gets the blob provider instance responsible for reading and writing bytes of the blob described by this context object.
+            </summary>
+        </member>
+        <member name="P:SenseNet.ContentRepository.Storage.Data.BlobStorageContext.BlobProviderData">
+            <summary>
+            A blob provider-specific object that contains information for connecting
+            the record in the Files table with the binary stored in the external storage
+            (e.g. the name of the folder in the file system where the bytes are stored).
+            </summary>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.BlobStorageContext.#ctor(SenseNet.ContentRepository.Storage.Data.IBlobProvider,System.String)">
+            <summary>
+            Creates a new instance of the BlobStorageContext class.
+            </summary>
+            <param name="provider">Blob provider to work with.</param>
+            <param name="providerData">Optional existing provider-specific data in text format.</param>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.BlobStorageContext.SerializeBlobProviderData(System.Object)">
+            <summary>
+            Serializes a provider-specific data object into a JSON string.
+            </summary>
+            <param name="blobProviderData">Provider-specific data (may be null).</param>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.BlobStorageContext.DeserializeBlobProviderData``1(System.String)">
+            <summary>
+            Deserializes a provider-specific data object from its JSON representation.
+            </summary>
+            <typeparam name="T">Provider-specific data type to create.</typeparam>
+            <param name="blobProviderData">Provider-specific data in a JSON text format.</param>
+        </member>
+        <member name="T:SenseNet.ContentRepository.Storage.Data.ChunkToken">
+            <summary>
+            Contains information that identifies a certain binary value when uploading binary chunks
+            or accessing the binary using the blob storage provider in an external tool.
+            </summary>
+        </member>
+        <member name="P:SenseNet.ContentRepository.Storage.Data.ChunkToken.BinaryPropertyId">
+            <summary>
+            Binary property id in the metadata database.
+            </summary>
+        </member>
+        <member name="P:SenseNet.ContentRepository.Storage.Data.ChunkToken.FileId">
+            <summary>
+            File id in the meadata database.
+            </summary>
+        </member>
+        <member name="P:SenseNet.ContentRepository.Storage.Data.ChunkToken.VersionId">
+            <summary>
+            Content version id.
+            </summary>
+        </member>
+        <member name="P:SenseNet.ContentRepository.Storage.Data.ChunkToken.PropertyTypeId">
+            <summary>
+            Binary property type id.
+            </summary>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.ChunkToken.GetToken">
+            <summary>
+            Generates a token using the provided ids. The algorithm is encapsulated here and can be changed at
+            any time. Only the Parse method below can be used to extract the values. The layers above should
+            NOT parse and use the ids compiled into this token.
+            </summary>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.ChunkToken.Parse(System.String,System.Int32)">
+            <summary>
+            Extracts the values stored in the token generated by the GetChunkToken method. This class
+            is the only component that should know about the algorithm that builds the token.
+            </summary>
+            <param name="token">String data that will be parsed to ChunkToken instance.</param>
+            <param name="versionId">Checks version id equality if the parameter value is greater than 0.
+            Throws a DataException if the version ids are different.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.ChunkToken.ToString">
+            <summary>
+            Converts this token to its string representation. The Parse method is able to work with the result of this method.
+            </summary>
+        </member>
+        <member name="T:SenseNet.ContentRepository.Storage.Data.IExternalBlobProviderFactory">
+            <summary>
+            Internal interface for aiding the built-in blob provider selector class.
+            </summary>
+        </member>
+        <member name="T:SenseNet.ContentRepository.Storage.Data.NullExternalBlobProviderFactory">
+            <summary>
+            Default external provider factory that returns null.
+            </summary>
+        </member>
+        <member name="T:SenseNet.ContentRepository.Storage.Data.ExternalBlobProviderFactory`1">
+            <summary>
+            Functional external provider factory that returns the provider instance
+            that matches the provided type.
+            </summary>
+            <typeparam name="T">The main blob provider type.</typeparam>
+        </member>
+        <member name="T:SenseNet.ContentRepository.Storage.Data.IBlobProvider">
+            <summary>
+            Interface for blob providers. Implement this to create
+            an external blob provider that stores binaries outside
+            of the Content Repository (e.g. in the file system).
+            </summary>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.IBlobProvider.AllocateAsync(SenseNet.ContentRepository.Storage.Data.BlobStorageContext,System.Threading.CancellationToken)">
+            <summary>
+            Allocates a place in the blob storage for the bytes to be stored
+            (e.g. creates a folder in the file system for file chunks). It should
+            fill the BlobProviderData property of the context with the data
+            that is necessary to access the binaries later (e.g. the name of
+            the folder).
+            </summary>
+            <param name="context">A context object that holds information about the binary data.</param>
+            <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+            <returns>A Task that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.IBlobProvider.WriteAsync(SenseNet.ContentRepository.Storage.Data.BlobStorageContext,System.Int64,System.Byte[],System.Threading.CancellationToken)">
+            <summary>
+            Writes a set of bytes into the blob storage. The offset must point to the
+            start of one of the internal chunks. The buffer may contain bytes
+            for multiple internal chunks.
+            </summary>
+            <param name="context">A context object that holds information about the binary data.</param>
+            <param name="offset">Start position in the full stream where the buffer will be written.</param>
+            <param name="buffer">The set of bytes to be written to the blob storage.</param>
+            <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+            <returns>A Task that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.IBlobProvider.DeleteAsync(SenseNet.ContentRepository.Storage.Data.BlobStorageContext,System.Threading.CancellationToken)">
+            <summary>
+            Deletes a binary from the storage related to a binary record in the database.
+            </summary>
+            <param name="context">A context object that holds information about the binary data.</param>
+            <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+            <returns>A Task that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.IBlobProvider.ClearAsync(SenseNet.ContentRepository.Storage.Data.BlobStorageContext,System.Threading.CancellationToken)">
+            <summary>
+            Clears the binary record. Clear operation is not equivalent to Delete. After Delete the record does not exist
+            but after Clear it does. Getting reader stream of the cleared binary record returns a 0 length stream
+            instead of null.
+            </summary>
+            <param name="context">A context object that holds information about the binary data.</param>
+            <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+            <returns>A Task that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.IBlobProvider.GetStreamForRead(SenseNet.ContentRepository.Storage.Data.BlobStorageContext)">
+            <summary>
+            Returns a stream that serves bytes from the blob storage. This stream cannot be used to
+            write bytes to the storage, it is a readonly stream, but it supports Seek.
+            </summary>
+            <param name="context">A context object that holds information about the binary data.</param>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.IBlobProvider.GetStreamForWrite(SenseNet.ContentRepository.Storage.Data.BlobStorageContext)">
+            <summary>
+            Returns a stream that can be used to write bytes to the blob storage. This is 
+            a write-only, forward-only stream that does not support Read and Seek.
+            </summary>
+            <param name="context">A context object that holds information about the binary data.</param>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.IBlobProvider.CloneStream(SenseNet.ContentRepository.Storage.Data.BlobStorageContext,System.IO.Stream)">
+            <summary>
+            Creates an in-memory clone of an existing stream object. It does not copy binary data,
+            it only creates a similar stream object that points to the same binary in the storage.
+            </summary>
+            <param name="context">A context object that holds information about the binary data.</param>
+            <param name="stream">An existing stream that should be one of the known stream types
+            that the provider works with (e.g. a chunked file stream in case of a file storage provider).</param>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.IBlobProvider.ParseData(System.String)">
+            <summary>
+            Parses a provider-specific provider data from a string.
+            </summary>
+            <param name="providerData">String representation (usually in JSON format) of the provider data.</param>
+            <returns>An object specific to this blob provider that contains information for connecting
+            the record in the Files table with the binary stored in the external storage
+            (e.g. the name of the folder in the file system where the bytes are stored).</returns>
+        </member>
+        <member name="T:SenseNet.ContentRepository.Storage.Data.IBlobProviderSelector">
+            <summary>
+            Defines an interface for blob provider selector implementations.
+            </summary>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.IBlobProviderSelector.GetProvider(System.Int64)">
+            <summary>
+            Gets a provider based on the binary size and the available blob providers in the system.
+            </summary>
+            <param name="fullSize">Full binary length.</param>
+            <returns>Returns the appropriate provider based on the environment.</returns>
+        </member>
+        <member name="T:SenseNet.ContentRepository.Storage.Data.IBlobProviderStore">
+            <summary>
+            Defines methods for managing a dictionary of blob providers.
+            </summary>
+        </member>
+        <member name="P:SenseNet.ContentRepository.Storage.Data.IBlobProviderStore.BuiltInBlobProvider">
+            <summary>
+            The built-in blob provider instance that can be found in the fill provider list.
+            </summary>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.IBlobProviderStore.AddProvider(SenseNet.ContentRepository.Storage.Data.IBlobProvider)">
+            <summary>
+            Adds a blob provider to the in-memory storage.
+            </summary>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.IBlobProviderStore.GetProvider(System.String)">
+            <summary>
+            Gets a blob provider by its full class name.
+            </summary>
+        </member>
+        <member name="T:SenseNet.ContentRepository.Storage.Data.IBlobStorage">
+            <summary>
+            Defines the central API for performing blob-related operations.
+            </summary>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.IBlobStorage.StartChunkAsync(System.Int32,System.Int32,System.Int64,System.Threading.CancellationToken)">
+            <summary>
+            Starts a chunked save operation on an existing content. It does not write any binary data 
+            to the storage, it only makes prerequisite operations - e.g. allocates a new slot in the storage.
+            </summary>
+            <param name="versionId">Content version id.</param>
+            <param name="propertyTypeId">Binary property type id.</param>
+            <param name="fullSize">Full size (stream length) of the binary value.</param>
+            <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+            <returns>A Task that represents the asynchronous operation containing a token with
+            all the information (db record ids) that identify a single entry in the blob storage.</returns>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.IBlobStorage.WriteChunkAsync(System.Int32,System.String,System.Byte[],System.Int64,System.Int64,System.Threading.CancellationToken)">
+            <summary>
+            Writes a byte array to the blob entry specified by the provided token.
+            </summary>
+            <param name="versionId">Content version id.</param>
+            <param name="token">Blob token provided by a preliminary request.</param>
+            <param name="buffer">Byte array to write.</param>
+            <param name="offset">Starting position.</param>
+            <param name="fullSize">Full size of the whole stream.</param>
+            <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.IBlobStorage.CommitChunkAsync(System.Int32,System.Int32,System.String,System.Int64,System.Threading.CancellationToken)">
+            <summary>
+            Finalizes a chunked save operation.
+            </summary>
+            <param name="versionId">Content version id.</param>
+            <param name="propertyTypeId">Binary property type id.</param>
+            <param name="token">Blob token provided by a preliminary request.</param>
+            <param name="fullSize">Full size (stream length) of the binary value.</param>
+            <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+            <returns>A Task that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.IBlobStorage.CommitChunkAsync(System.Int32,System.Int32,System.String,System.Int64,SenseNet.ContentRepository.Storage.BinaryDataValue,System.Threading.CancellationToken)">
+            <summary>
+            Finalizes a chunked save operation.
+            </summary>
+            <param name="versionId">Content version id.</param>
+            <param name="propertyTypeId">Binary property type id.</param>
+            <param name="token">Blob token provided by a preliminary request.</param>
+            <param name="fullSize">Full size (stream length) of the binary value.</param>
+            <param name="source">Binary data containing metadata (e.g. content type).</param>
+            <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+            <returns>A Task that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.IBlobStorage.CopyFromStreamAsync(System.Int32,System.String,System.IO.Stream,System.Threading.CancellationToken)">
+            <summary>
+            Writes an input stream to an entry in the blob storage specified by the provided token.
+            </summary>
+            <param name="versionId">Content version id.</param>
+            <param name="token">Blob token provided by a preliminary request.</param>
+            <param name="input">The whole stream to write.</param>
+            <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.IBlobStorage.CleanupFilesSetFlagAsync(System.Threading.CancellationToken)">
+            <summary>
+            Marks orphaned file records (the ones that do not have a referencing binary record anymore) as Deleted.
+            Marks only files that were created more than 30 minutes ago.
+            </summary>
+            <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+            <returns>A Task that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.IBlobStorage.CleanupFilesSetFlagImmediatelyAsync(System.Threading.CancellationToken)">
+            <summary>
+            Marks orphaned file records (the ones that do not have a referencing binary record anymore) as Deleted.
+            </summary>
+            <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+            <returns>A Task that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.IBlobStorage.CleanupFilesAsync(System.Threading.CancellationToken)">
+            <summary>
+            Deletes one record that is marked as deleted from the metadata database and also from the blob storage.
+            </summary>
+            <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+            <returns>A Task that represents the asynchronous operation containing a boolean value 
+            that is true if there was at least one row that was deleted.</returns>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.IBlobStorage.CleanupAllFilesAsync(System.Threading.CancellationToken)">
+            <summary>
+            Deletes all records that are marked as deleted from the metadata database and also from the blob storage.
+            </summary>
+            <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+            <returns>A Task that represents the asynchronous operation.</returns>
+        </member>
+        <member name="T:SenseNet.ContentRepository.Storage.Data.IBlobStorageMetaDataProvider">
+            <summary>
+            Defines the API for handling blob-related operations in the main metadata database.
+            You will have to implement this when you create a new data provider for the whole
+            Content Repository. If you only want to store binaries in an external database, 
+            please implement the IBlobProvider interface.
+            </summary>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.IBlobStorageMetaDataProvider.GetBlobStorageContextAsync(System.Int32,System.Boolean,System.Int32,System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Returns a context object that holds provider-specific data for blob storage operations.
+            </summary>
+            <param name="fileId">File identifier.</param>
+            <param name="clearStream">Whether the blob provider should clear the stream during assembling the context.</param>
+            <param name="versionId">Content version id.</param>
+            <param name="propertyTypeId">Binary property type id.</param>
+            <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.IBlobStorageMetaDataProvider.InsertBinaryPropertyAsync(SenseNet.ContentRepository.Storage.Data.IBlobProvider,SenseNet.ContentRepository.Storage.BinaryDataValue,System.Int32,System.Int32,System.Boolean,SenseNet.ContentRepository.Storage.Data.SnDataContext)">
+            <summary>
+            Inserts a new binary property value into the metadata database and the blob storage, 
+            removing the previous one if the content is not new.
+            </summary>
+            <param name="blobProvider">Blob storage provider.</param>
+            <param name="value">Binary data to insert.</param>
+            <param name="versionId">Content version id.</param>
+            <param name="propertyTypeId">Binary property type id.</param>
+            <param name="isNewNode">Whether this value belongs to a new or an existing node.</param>
+            <param name="dataContext">Database accessor object.</param>
+            <returns>A Task that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.IBlobStorageMetaDataProvider.InsertBinaryPropertyWithFileIdAsync(SenseNet.ContentRepository.Storage.BinaryDataValue,System.Int32,System.Int32,System.Boolean,SenseNet.ContentRepository.Storage.Data.SnDataContext)">
+            <summary>
+            Inserts a new binary record into the metadata database containing an already existing file id,
+            removing the previous record if the content is not new.
+            </summary>
+            <param name="value">Binary data to insert.</param>
+            <param name="versionId">Content version id.</param>
+            <param name="propertyTypeId">Binary property type id.</param>
+            <param name="isNewNode">Whether this value belongs to a new or an existing node.</param>
+            <param name="dataContext">Database accessor object.</param>
+            <returns>A Task that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.IBlobStorageMetaDataProvider.UpdateBinaryPropertyAsync(SenseNet.ContentRepository.Storage.Data.IBlobProvider,SenseNet.ContentRepository.Storage.BinaryDataValue,SenseNet.ContentRepository.Storage.Data.SnDataContext)">
+            <summary>
+            Updates an existing binary property value in the database and the blob storage.
+            </summary>
+            <param name="blobProvider">Blob storage provider.</param>
+            <param name="value">Binary data to update.</param>
+            <param name="dataContext">Database accessor object.</param>
+            <returns>A Task that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.IBlobStorageMetaDataProvider.DeleteBinaryPropertyAsync(System.Int32,System.Int32,SenseNet.ContentRepository.Storage.Data.SnDataContext)">
+            <summary>
+            Deletes a binary property value from the metadata database, making the corresponding blob storage entry orphaned.
+            </summary>
+            <param name="versionId">Content version id.</param>
+            <param name="propertyTypeId">Binary property type id.</param>
+            <param name="dataContext">Database accessor object.</param>
+            <returns>A Task that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.IBlobStorageMetaDataProvider.DeleteBinaryPropertiesAsync(System.Collections.Generic.IEnumerable{System.Int32},SenseNet.ContentRepository.Storage.Data.SnDataContext)">
+            <summary>
+            Deletes all binary properties of the requested versions.
+            </summary>
+            <param name="versionIds">VersionId set.</param>
+            <param name="dataContext">Database accessor object.</param>
+            <returns>A Task that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.IBlobStorageMetaDataProvider.LoadBinaryPropertyAsync(System.Int32,System.Int32,SenseNet.ContentRepository.Storage.Data.SnDataContext)">
+            <summary>
+            Loads binary property object without the stream by the given parameters.
+            </summary>
+            <param name="versionId">Content version id.</param>
+            <param name="propertyTypeId">Binary property type id.</param>
+            <param name="dataContext">Database accessor object.</param>
+            <returns>A Task that represents the asynchronous operation 
+            containing the loaded <see cref="T:SenseNet.ContentRepository.Storage.BinaryDataValue"/> instance or null.</returns>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.IBlobStorageMetaDataProvider.LoadBinaryCacheEntityAsync(System.Int32,System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Loads a cache item into memory that either contains the raw binary (if its size fits into the limit) or
+            just the blob metadata pointing to the blob storage.
+            </summary>
+            <param name="versionId">Content version id.</param>
+            <param name="propertyTypeId">Binary property type id.</param>
+            <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+            <returns>A Task that represents the asynchronous operation 
+            containing the loaded <see cref="T:SenseNet.ContentRepository.Storage.Data.BinaryCacheEntity"/> instance or null.</returns>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.IBlobStorageMetaDataProvider.LoadBinaryCacheEntityAsync(System.Int32,System.Int32,SenseNet.ContentRepository.Storage.Data.SnDataContext)">
+            <summary>
+            Loads a cache item into memory that either contains the raw binary (if its size fits into the limit) or
+            just the blob metadata pointing to the blob storage.
+            </summary>
+            <param name="versionId">Content version id.</param>
+            <param name="propertyTypeId">Binary property type id.</param>
+            <param name="dataContext">Database accessor object.</param>
+            <returns>A Task that represents the asynchronous operation 
+            containing the loaded <see cref="T:SenseNet.ContentRepository.Storage.Data.BinaryCacheEntity"/> instance or null.</returns>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.IBlobStorageMetaDataProvider.StartChunkAsync(SenseNet.ContentRepository.Storage.Data.IBlobProvider,System.Int32,System.Int32,System.Int64,System.Threading.CancellationToken)">
+            <summary>
+            Starts a chunked save operation on an existing content. It does not write any binary data 
+            to the storage, it only makes prerequisite operations - e.g. allocates a new slot in the storage.
+            </summary>
+            <param name="blobProvider">Blob storage provider.</param>
+            <param name="versionId">Content version id.</param>
+            <param name="propertyTypeId">Binary property type id.</param>
+            <param name="fullSize">Full size (stream length) of the binary value.</param>
+            <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+            <returns>A Task that represents the asynchronous operation containing a token with
+             all the information (db record ids) that identify a single entry in the blob storage.</returns>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.IBlobStorageMetaDataProvider.CommitChunkAsync(System.Int32,System.Int32,System.Int32,System.Int64,SenseNet.ContentRepository.Storage.BinaryDataValue,System.Threading.CancellationToken)">
+            <summary>
+            Finalizes a chunked save operation.
+            </summary>
+            <param name="versionId">Content version id.</param>
+            <param name="propertyTypeId">Binary property type id.</param>
+            <param name="fileId">File identifier.</param>
+            <param name="fullSize">Full size (stream length) of the binary value.</param>
+            <param name="source">Binary data containing metadata (e.g. content type).</param>
+            <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+            <returns>A Task that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.IBlobStorageMetaDataProvider.CleanupFilesSetDeleteFlagAsync(System.Threading.CancellationToken)">
+            <summary>
+            Marks orphaned file records (the ones that do not have a referencing binary record anymore) as Deleted.
+            Marks only files that were created more than 30 minutes ago.
+            </summary>
+            <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+            <returns>A Task that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.IBlobStorageMetaDataProvider.CleanupFilesSetDeleteFlagImmediatelyAsync(System.Threading.CancellationToken)">
+            <summary>
+            Marks orphaned file records (the ones that do not have a referencing binary record anymore) as Deleted.
+            </summary>
+            <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+            <returns>A Task that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.IBlobStorageMetaDataProvider.CleanupFilesAsync(System.Threading.CancellationToken)">
+            <summary>
+            Deletes file records that are marked as deleted from the metadata database and also from the blob storage.
+            Depending on the implementation this method may delete multiple records or only a single one.
+            </summary>
+            <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+            <returns>A Task that represents the asynchronous operation containing a boolean value 
+            that is true if there was at least one row that was deleted.</returns>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.IBlobStorageMetaDataProvider.CleanupAllFilesAsync(System.Threading.CancellationToken)">
+            <summary>
+            Deletes all file records that are marked as deleted from the metadata database and also from the blob storage.
+            </summary>
+            <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+            <returns>A Task that represents the asynchronous operation.</returns>
+        </member>
+        <member name="T:SenseNet.ContentRepository.Storage.Data.MsSqlClient.IBuiltInBlobProvider">
+            <summary>
+            Interface for pointing out the special built-in blob provider implementation.
+            </summary>
+        </member>
+        <member name="T:SenseNet.ContentRepository.Storage.Data.MsSqlClient.BuiltInBlobProvider">
+            <summary>
+            The built-in provider is responsible for saving bytes directly 
+            to the Files table (varbinary column). This
+            provider cannot be removed or replaced by an external provider.
+            </summary>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.MsSqlClient.BuiltInBlobProvider.ParseData(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.MsSqlClient.BuiltInBlobProvider.AllocateAsync(SenseNet.ContentRepository.Storage.Data.BlobStorageContext,System.Threading.CancellationToken)">
+            <summary>
+            Throws NotSupportedException. Our algorithms do not use this methon of this type.
+            </summary>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.MsSqlClient.BuiltInBlobProvider.AddStream(SenseNet.ContentRepository.Storage.Data.BlobStorageContext,System.IO.Stream)">
+            <summary>
+            DO NOT USE DIRECTLY THIS METHOD FROM YOUR CODE.
+            Writes the stream in the appropriate row of the Files table specified by the context.
+            </summary>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.MsSqlClient.BuiltInBlobProvider.UpdateStream(SenseNet.ContentRepository.Storage.Data.BlobStorageContext,System.IO.Stream)">
+            <summary>
+            DO NOT USE DIRECTLY THIS METHOD FROM YOUR CODE.
+            Updates the stream in the appropriate row of the Files table specified by the context.
+            </summary>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.MsSqlClient.BuiltInBlobProvider.ClearAsync(SenseNet.ContentRepository.Storage.Data.BlobStorageContext,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.MsSqlClient.BuiltInBlobProvider.GetStreamForRead(SenseNet.ContentRepository.Storage.Data.BlobStorageContext)">
+            <inheritdoc />
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.MsSqlClient.BuiltInBlobProvider.CloneStream(SenseNet.ContentRepository.Storage.Data.BlobStorageContext,System.IO.Stream)">
+            <inheritdoc />
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.MsSqlClient.BuiltInBlobProvider.DeleteAsync(SenseNet.ContentRepository.Storage.Data.BlobStorageContext,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.MsSqlClient.BuiltInBlobProvider.WriteAsync(SenseNet.ContentRepository.Storage.Data.BlobStorageContext,System.Int64,System.Byte[],System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.MsSqlClient.BuiltInBlobProvider.GetStreamForWrite(SenseNet.ContentRepository.Storage.Data.BlobStorageContext)">
+            <summary>
+            Throws NotSupportedException. Our algorithms do not use this methon of this type.
+            </summary>
+        </member>
+        <member name="T:SenseNet.ContentRepository.Storage.Data.MsSqlClient.BuiltinBlobProviderData">
+            <summary>
+            Blob provider data for the built-in blob provider.
+            </summary>
+        </member>
+        <member name="T:SenseNet.ContentRepository.Storage.Data.MsSqlClient.BuiltInBlobProviderSelector">
+            <summary>
+            The selector class is responsible for choosing the blob
+            provider that will store the binary.
+            Currently the provider selector cannot be changed, only the
+            external provider can be configured (BlobProvider key). 
+            The built-in selector chooses the appropriate blob provider 
+            based on the size of the file that is being saved.
+            </summary>
+        </member>
+        <member name="P:SenseNet.ContentRepository.Storage.Data.MsSqlClient.BuiltInBlobProviderSelector.ExternalBlobProvider">
+            <summary>
+            A custom blob provider instance that will be used when the file size exceeds a certain configured value.
+            </summary>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.MsSqlClient.BuiltInBlobProviderSelector.#ctor(SenseNet.ContentRepository.Storage.Data.IBlobProviderStore,SenseNet.ContentRepository.Storage.Data.IExternalBlobProviderFactory,Microsoft.Extensions.Options.IOptions{SenseNet.Configuration.BlobStorageOptions})">
+            <summary>
+            Initializes an instance of the BuiltInBlobProviderSelector
+            </summary>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.MsSqlClient.BuiltInBlobProviderSelector.GetProvider(System.Int64)">
+            <summary>
+            Gets a provider based on the binary size and the available blob providers in the system.
+            </summary>
+            <param name="fullSize">Full binary length.</param>
+        </member>
+        <member name="T:SenseNet.ContentRepository.Storage.Data.MsSqlClient.MsSqlBlobMetaDataProvider">
+            <summary>
+            Contains the MS SQL-specific implementation of the IBlobStorageMetaDataProvider interface that
+            is responsible for binary-related operations in the main metadata database.
+            </summary>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.MsSqlClient.MsSqlBlobMetaDataProvider.GetBlobStorageContextAsync(System.Int32,System.Boolean,System.Int32,System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Returns a context object that holds MsSql-specific data for blob storage operations.
+            </summary>
+            <param name="fileId">File identifier.</param>
+            <param name="clearStream">Whether the blob provider should clear the stream during assembling the context.</param>
+            <param name="versionId">Content version id.</param>
+            <param name="propertyTypeId">Binary property type id.</param>
+            <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+        </member>
+        <member name="T:SenseNet.ContentRepository.Storage.Data.BinaryCacheEntity">
+            <summary>
+            A cache item that either contains the raw binary (if its size fits into the limit) or
+            just the blob metadata pointing to the blob storage.
+            </summary>
+        </member>
+        <member name="P:SenseNet.ContentRepository.Storage.Data.BinaryCacheEntity.RawData">
+            <summary>
+            Full binary in case of small files.
+            </summary>
+        </member>
+        <member name="P:SenseNet.ContentRepository.Storage.Data.BinaryCacheEntity.Length">
+            <summary>
+            Length of the full stream.
+            </summary>
+        </member>
+        <member name="P:SenseNet.ContentRepository.Storage.Data.BinaryCacheEntity.BinaryPropertyId">
+            <summary>
+            Binary property id in the metadata database.
+            </summary>
+        </member>
+        <member name="P:SenseNet.ContentRepository.Storage.Data.BinaryCacheEntity.FileId">
+            <summary>
+            File id in the meadata database. It points to a record that contains 
+            the provider-specific blob storage information about the binary.
+            </summary>
+        </member>
+        <member name="P:SenseNet.ContentRepository.Storage.Data.BinaryCacheEntity.Context">
+            <summary>
+            Provider-specific context information for binary operations.
+            </summary>
+        </member>
+        <member name="M:SenseNet.ContentRepository.Storage.Data.BinaryCacheEntity.GetCacheKey(System.Int32,System.Int32)">
+            <summary>
+            Gets a cache key for memorizing binary cache entities.
+            </summary>
+            <param name="versionId">Content version id.</param>
+            <param name="propertyTypeId">Binary property type id.</param>
+        </member>
+        <member name="T:SenseNet.ContentRepository.Storage.Data.RepositoryStream">
+            <summary>
+            Stream implementation that serves binaries from the blob storage using an in-memory byte array buffer.
+            </summary>
+        </member>
+        <member name="T:SenseNet.ContentRepository.Storage.Data.SnStream">
+            <summary>
+            A wrapper stream that provides a unified stream interface on the top of different data 
+            sources (e.g. an in-memory byte array or a real stream loaded from the blob provider).
+            </summary>
+        </member>
+        <member name="M:SenseNet.Extensions.DependencyInjection.BlobStorageExtensions.UseExternalBlobProvider(SenseNet.Tools.IRepositoryBuilder,SenseNet.ContentRepository.Storage.Data.IBlobProvider)">
+            <summary>
+            Set the external blob provider to be used by the built-in blob provider selector
+            during write operations when the binary size exceeds a configured value.
+            </summary>
+        </member>
+        <member name="M:SenseNet.Extensions.DependencyInjection.BlobStorageExtensions.AddSenseNetBlobStorageMetaDataProvider``1(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Adds the blob metadata provider to the service collection.
+            </summary>
+        </member>
+        <member name="T:SenseNet.Configuration.BlobDeletionPolicy">
+            <summary>
+            Determines the blob deletion algorithm.
+            </summary>
+        </member>
+        <member name="F:SenseNet.Configuration.BlobDeletionPolicy.BackgroundDelayed">
+            <summary>
+            The SnMaintenance service checks orphaned blobs periodically and after a delay deletes them.
+            </summary>
+            <remarks>
+            This policy ensures a fast response time but the database may contain a lot of unnecessary data.
+            This is an enterprise feature.
+            </remarks>
+        </member>
+        <member name="F:SenseNet.Configuration.BlobDeletionPolicy.BackgroundImmediately">
+            <summary>
+            Deleting blobs is requested immediately, and a dedicated background task deletes them one by one.
+            </summary>
+            <remarks>
+            This policy ensures a fast response time but the database load is higher than
+            in the BackgroundDelayed case.
+            The database does not reach the desired size immediately, but the delay is as short as possible.
+            </remarks>
+        </member>
+        <member name="F:SenseNet.Configuration.BlobDeletionPolicy.Immediately">
+            <summary>
+            Deleting a blob happens immediately and synchronously.
+            </summary>
+            <remarks>
+            This policy results in a slower response, the database load is highest but
+            the database reaches the desired size immediately.
+            </remarks>
+        </member>
+        <member name="P:SenseNet.Configuration.BlobStorage.BinaryChunkSize">
+            <summary>
+            Size of chunks (in bytes) that are sent to the server by the upload control. It is also taken into
+            account when computing the size of inner buffers and caches.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Configuration.BlobStorage.BinaryBufferSize">
+            <summary>
+            Size (in bytes) of the binary buffer used by internal streams when serving files from 
+            the database or the file system. The purpose of this cache is to serve requests faster 
+            and to reduce the number of SQL connections. 
+            </summary>
+        </member>
+        <member name="P:SenseNet.Configuration.BlobStorage.BinaryCacheSize">
+            <summary>
+            Maximum file size (in bytes) that should be cached after loading a binary value. Smaller files 
+            will by placed into the cache, larger files will always be served from the blob storage directly.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Configuration.BlobStorage.MinimumSizeForBlobProviderInBytes">
+            <summary>
+            Minimum size limit (in bytes) for binary data to be stored in the external blob storage. 
+            Files under this size will be stored in the database. If you set this to 0, all files
+            will go to the external storage. In case of a huge value everything will remain in the db.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Configuration.BlobStorage.BlobProviderClassName">
+            <summary>
+            Class name of an optional external blob storage provider.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Configuration.BlobStorage.MetadataProviderClassName">
+            <summary>
+            Class name of an optional external metadata provider for the blob storage.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Configuration.BlobStorage.BlobDeletionPolicy">
+            <summary>
+            Gets or sets the blob deletion algorithm.
+            </summary>
+        </member>
+    </members>
+</doc>

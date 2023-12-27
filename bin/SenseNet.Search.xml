@@ -1,0 +1,2138 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SenseNet.Search</name>
+    </assembly>
+    <members>
+        <member name="T:SenseNet.Search.FilterStatus">
+            <summary>
+            Defines automatic filtering options.
+            </summary>
+        </member>
+        <member name="F:SenseNet.Search.FilterStatus.Default">
+            <summary>Default value of the filter. Interpretation is context-dependent.</summary>
+        </member>
+        <member name="F:SenseNet.Search.FilterStatus.Enabled">
+            <summary>Filter is enabled.</summary>
+        </member>
+        <member name="F:SenseNet.Search.FilterStatus.Disabled">
+            <summary>Filter is disabled.</summary>
+        </member>
+        <member name="T:SenseNet.Search.IndexFieldName">
+            <summary>
+            Defines well known field names using in indexing and querying.
+            </summary>
+        </member>
+        <member name="F:SenseNet.Search.IndexFieldName.NodeId">
+            <summary>Value: "Id"</summary>
+        </member>
+        <member name="F:SenseNet.Search.IndexFieldName.VersionId">
+            <summary>Value: "VersionId"</summary>
+        </member>
+        <member name="F:SenseNet.Search.IndexFieldName.Name">
+            <summary>Value: "Name"</summary>
+        </member>
+        <member name="F:SenseNet.Search.IndexFieldName.DisplayName">
+            <summary>Value: "DisplayName"</summary>
+        </member>
+        <member name="F:SenseNet.Search.IndexFieldName.Path">
+            <summary>Value: "Path"</summary>
+        </member>
+        <member name="F:SenseNet.Search.IndexFieldName.Depth">
+            <summary>Value: "Depth"</summary>
+        </member>
+        <member name="F:SenseNet.Search.IndexFieldName.InTree">
+            <summary>Value: "InTree"</summary>
+        </member>
+        <member name="F:SenseNet.Search.IndexFieldName.InFolder">
+            <summary>Value: "InFolder"</summary>
+        </member>
+        <member name="F:SenseNet.Search.IndexFieldName.ParentId">
+            <summary>Value: "ParentId"</summary>
+        </member>
+        <member name="F:SenseNet.Search.IndexFieldName.IsMajor">
+            <summary>Value: "IsMajor"</summary>
+        </member>
+        <member name="F:SenseNet.Search.IndexFieldName.IsPublic">
+            <summary>Value: "IsPublic"</summary>
+        </member>
+        <member name="F:SenseNet.Search.IndexFieldName.IsLastPublic">
+            <summary>Value: "IsLastPublic"</summary>
+        </member>
+        <member name="F:SenseNet.Search.IndexFieldName.IsLastDraft">
+            <summary>Value: "IsLastDraft"</summary>
+        </member>
+        <member name="F:SenseNet.Search.IndexFieldName.Type">
+            <summary>Value: "Type"</summary>
+        </member>
+        <member name="F:SenseNet.Search.IndexFieldName.TypeIs">
+            <summary>Value: "TypeIs"</summary>
+        </member>
+        <member name="F:SenseNet.Search.IndexFieldName.NodeTypeId">
+            <summary>Value: "NodeTypeId"</summary>
+        </member>
+        <member name="F:SenseNet.Search.IndexFieldName.ContentListId">
+            <summary>Value: "ContentListId"</summary>
+        </member>
+        <member name="F:SenseNet.Search.IndexFieldName.ContentListTypeId">
+            <summary>Value: "ContentListTypeId"</summary>
+        </member>
+        <member name="F:SenseNet.Search.IndexFieldName.Version">
+            <summary>Value: "Version"</summary>
+        </member>
+        <member name="F:SenseNet.Search.IndexFieldName.VersionStatus">
+            <summary>Value: "VersionStatus"</summary>
+        </member>
+        <member name="F:SenseNet.Search.IndexFieldName.IsDeleted">
+            <summary>Value: "IsDeleted"</summary>
+        </member>
+        <member name="F:SenseNet.Search.IndexFieldName.IsInherited">
+            <summary>Value: "IsInherited"</summary>
+        </member>
+        <member name="F:SenseNet.Search.IndexFieldName.Index">
+            <summary>Value: "Index"</summary>
+        </member>
+        <member name="F:SenseNet.Search.IndexFieldName.Locked">
+            <summary>Value: "Locked"</summary>
+        </member>
+        <member name="F:SenseNet.Search.IndexFieldName.LockedById">
+            <summary>Value: "LockedById"</summary>
+        </member>
+        <member name="F:SenseNet.Search.IndexFieldName.ETag">
+            <summary>Value: "ETag"</summary>
+        </member>
+        <member name="F:SenseNet.Search.IndexFieldName.LockType">
+            <summary>Value: "LockType"</summary>
+        </member>
+        <member name="F:SenseNet.Search.IndexFieldName.LockTimeout">
+            <summary>Value: "LockTimeout"</summary>
+        </member>
+        <member name="F:SenseNet.Search.IndexFieldName.LockDate">
+            <summary>Value: "LockDate"</summary>
+        </member>
+        <member name="F:SenseNet.Search.IndexFieldName.LockToken">
+            <summary>Value: "LockToken"</summary>
+        </member>
+        <member name="F:SenseNet.Search.IndexFieldName.LastLockUpdate">
+            <summary>Value: "LastLockUpdate"</summary>
+        </member>
+        <member name="F:SenseNet.Search.IndexFieldName.MajorNumber">
+            <summary>Value: "MajorNumber"</summary>
+        </member>
+        <member name="F:SenseNet.Search.IndexFieldName.MinorNumber">
+            <summary>Value: "MinorNumber"</summary>
+        </member>
+        <member name="F:SenseNet.Search.IndexFieldName.CreationDate">
+            <summary>Value: "CreationDate"</summary>
+        </member>
+        <member name="F:SenseNet.Search.IndexFieldName.CreatedById">
+            <summary>Value: "CreatedById"</summary>
+        </member>
+        <member name="F:SenseNet.Search.IndexFieldName.ModificationDate">
+            <summary>Value: "ModificationDate"</summary>
+        </member>
+        <member name="F:SenseNet.Search.IndexFieldName.ModifiedById">
+            <summary>Value: "ModifiedById"</summary>
+        </member>
+        <member name="F:SenseNet.Search.IndexFieldName.IsSystem">
+            <summary>Value: "IsSystemContent"</summary>
+        </member>
+        <member name="F:SenseNet.Search.IndexFieldName.OwnerId">
+            <summary>Value: "OwnerId"</summary>
+        </member>
+        <member name="F:SenseNet.Search.IndexFieldName.SavingState">
+            <summary>Value: "SavingState"</summary>
+        </member>
+        <member name="F:SenseNet.Search.IndexFieldName.NodeTimestamp">
+            <summary>Value: "NodeTimestamp"</summary>
+        </member>
+        <member name="F:SenseNet.Search.IndexFieldName.VersionTimestamp">
+            <summary>Value: "VersionTimestamp"</summary>
+        </member>
+        <member name="F:SenseNet.Search.IndexFieldName.IsFaulted">
+            <summary>Value: "IsFaulted"</summary>
+        </member>
+        <member name="F:SenseNet.Search.IndexFieldName.FaultedFieldName">
+            <summary>Value: "FaultedFieldName"</summary>
+        </member>
+        <member name="F:SenseNet.Search.IndexFieldName.AllText">
+            <summary>Value: "_Text"</summary>
+        </member>
+        <member name="T:SenseNet.Search.Indexing.BackupInfo">
+            <summary>
+            Represents a backup operation.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Indexing.BackupInfo.StartedAt">
+            <summary>
+            Gets or sets the UTC time of the start.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Indexing.BackupInfo.FinishedAt">
+            <summary>
+            Gets or sets the UTC time of the finish.
+            The value is DateTime.MinValue if the operation is unfinished.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Indexing.BackupInfo.TotalBytes">
+            <summary>
+            Gets or sets the total length of the files to be copied.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Indexing.BackupInfo.CopiedBytes">
+            <summary>
+            Gets or sets the total length of the copied files.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Indexing.BackupInfo.CountOfFiles">
+            <summary>
+            Gets or sets the count of the files to be copied.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Indexing.BackupInfo.CopiedFiles">
+            <summary>
+            Gets or sets the count of the copied files.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Indexing.BackupInfo.CurrentlyCopiedFile">
+            <summary>
+            Gets or sets the name of the currently copied file.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Indexing.BackupInfo.Message">
+            <summary>
+            Gets or sets the error or cancellation message.
+            In case of currently executing or successfully finished operations the value is null.
+            </summary>
+        </member>
+        <member name="M:SenseNet.Search.Indexing.BackupInfo.Clone">
+            <summary>
+            Creates a copy.
+            </summary>
+        </member>
+        <member name="T:SenseNet.Search.Indexing.BackupResponse">
+            <summary>
+            Contains return information for the backup actions and status queries.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Indexing.BackupResponse.State">
+            <summary>
+            Gets or sets the backup state of the current request.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Indexing.BackupResponse.Current">
+            <summary>
+            Gets or sets the progress of the currently running backup operation or null.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Indexing.BackupResponse.History">
+            <summary>
+            Gets or sets the finished backup operations since the last start.
+            </summary>
+        </member>
+        <member name="T:SenseNet.Search.Indexing.BackupState">
+            <summary>
+            Represents a state of the backup operation.
+            </summary>
+        </member>
+        <member name="F:SenseNet.Search.Indexing.BackupState.Initial">
+            <summary>
+            Default value: there is no running backup and history is empty.
+            </summary>
+        </member>
+        <member name="F:SenseNet.Search.Indexing.BackupState.Started">
+            <summary>
+            Indicates to the caller that the backup has started successfully.
+            </summary>
+        </member>
+        <member name="F:SenseNet.Search.Indexing.BackupState.Executing">
+            <summary>
+            Indicates to the caller that the backup is running.
+            </summary>
+        </member>
+        <member name="F:SenseNet.Search.Indexing.BackupState.Finished">
+            <summary>
+            Indicates that the last backup is successfully finished.
+            </summary>
+        </member>
+        <member name="F:SenseNet.Search.Indexing.BackupState.CancelRequested">
+            <summary>
+            Indicates that the break of the running backup has been requested.
+            </summary>
+        </member>
+        <member name="F:SenseNet.Search.Indexing.BackupState.Canceled">
+            <summary>
+             Indicates to the caller that the backup operation is broken without any error.
+            </summary>
+        </member>
+        <member name="F:SenseNet.Search.Indexing.BackupState.Faulted">
+            <summary>
+            Indicates that an error occured.
+            </summary>
+        </member>
+        <member name="T:SenseNet.Search.Indexing.IFieldIndexHandler">
+            <summary>
+            Defines API elements for customization of the IIndexableField -> IndexValue transformation.
+            This interface is designed to transformations of every data types that are used in querying and indexing.
+            It is highly recommended to implement a class for each data type.
+            </summary>
+        </member>
+        <member name="M:SenseNet.Search.Indexing.IFieldIndexHandler.Parse(System.String)">
+            <summary>
+            Parse a string value and return with an atomic IndexValue instance.
+            </summary>
+        </member>
+        <member name="M:SenseNet.Search.Indexing.IFieldIndexHandler.ConvertToTermValue(System.Object)">
+            <summary>
+            Parse an object value and return with an atomic IndexValue instance.
+            </summary>
+        </member>
+        <member name="M:SenseNet.Search.Indexing.IFieldIndexHandler.GetDefaultAnalyzer">
+            <summary>
+            Returns the default analyzer choice of the data type.
+            </summary>
+        </member>
+        <member name="M:SenseNet.Search.Indexing.IFieldIndexHandler.GetParsableValues(SenseNet.Search.Indexing.IIndexableField)">
+            <summary>
+            Returns with field value's string representation that can be inserted into a CQL as a valid term value.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Indexing.IFieldIndexHandler.IndexFieldType">
+            <summary>
+            IndexValueType of the converted values.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Indexing.IFieldIndexHandler.OwnerIndexingInfo">
+            <summary>
+            Gets or sets the indexing metadata descriptor object for the implementation.
+            This is only a storage slot. The implementation just holds the given object.
+            </summary>
+        </member>
+        <member name="M:SenseNet.Search.Indexing.IFieldIndexHandler.GetSortFieldName(System.String)">
+            <summary>
+            Returns with the sort field name if it is converted. For example if the field is converted
+            to multiple index values, and the name of the value for sorting is renamed (prefixed or suffixed),
+            this method gives the real name of the sort field that is used in the compiled query.
+            Used in the query execution.
+            </summary>
+            <param name="fieldName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SenseNet.Search.Indexing.IFieldIndexHandler.GetIndexFields(SenseNet.Search.Indexing.IIndexableField,System.String@)">
+            <summary>
+            Converts a field to one or more index values.
+            </summary>
+            <param name="field">Source of the transformation.</param>
+            <param name="textExtract">All words of the input field value concatenated to one string.</param>
+            <returns>Collection of the converted values.</returns>
+        </member>
+        <member name="T:SenseNet.Search.Indexing.IIndexableField">
+            <summary>
+            Describes an indexable object.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Indexing.IIndexableField.Name">
+            <summary>
+            Name of the object. This name will be used in the index and query.
+            </summary>
+        </member>
+        <member name="M:SenseNet.Search.Indexing.IIndexableField.GetData">
+            <summary>
+            Gets the field's value.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Indexing.IIndexableField.IsInIndex">
+            <summary>
+            Gets a value that is true if the field need to be indexed otherwise false.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Indexing.IIndexableField.IsBinaryField">
+            <summary>
+            Gets a value that is true if the field is.
+            </summary>
+        </member>
+        <member name="M:SenseNet.Search.Indexing.IIndexableField.GetIndexFields(System.String@)">
+            <summary>
+            Returns with the transformed index fields and the text extract.
+            The transformation uses the appropriate IFieldIndexHandler implementation.
+            </summary>
+        </member>
+        <member name="T:SenseNet.Search.Indexing.IIndexingEngine">
+            <summary>
+            Describes a class that executes the indexing operations. Only one instance is used.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Indexing.IIndexingEngine.Running">
+            <summary>
+            Gets a value that indicates whether the IIndexingEngine is running.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Indexing.IIndexingEngine.IndexIsCentralized">
+            <summary>
+            Gets a value that is true if the index is shared or false if the index is replicated.
+            </summary>
+        </member>
+        <member name="M:SenseNet.Search.Indexing.IIndexingEngine.StartAsync(System.IO.TextWriter,System.Threading.CancellationToken)">
+            <summary>
+            Initializes the IIndexingEngine instance.
+            ConsoleOut can be used for writing interactive messages if the system is running under an administrative tool.
+            </summary>
+            <param name="consoleOut">Console to write messages to.</param>
+            <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+            <returns>A Task that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:SenseNet.Search.Indexing.IIndexingEngine.ShutDownAsync(System.Threading.CancellationToken)">
+            <summary>
+            Stops the indexing and releases all inner and outer resources.  This is not a destructor.
+            </summary>
+            <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+            <returns>A Task that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:SenseNet.Search.Indexing.IIndexingEngine.BackupAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Takes a snapshot of the index and copies it to the given target.
+            Target is typically a directory in the filesystem.
+            The backup is exclusive operation, can be started only once.
+            </summary>
+            <param name="target">Path of the target directory or any other target definition.</param>
+            <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+            <returns>A Task that represents the asynchronous operation and wraps the <see cref="T:SenseNet.Search.Indexing.BackupResponse"/>.</returns>
+        </member>
+        <member name="M:SenseNet.Search.Indexing.IIndexingEngine.QueryBackupAsync(System.Threading.CancellationToken)">
+            <summary>
+            Queries the backup state in the system.
+            </summary>
+            <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+            <returns>A Task that represents the asynchronous operation and wraps the <see cref="T:SenseNet.Search.Indexing.BackupResponse"/>.</returns>
+        </member>
+        <member name="M:SenseNet.Search.Indexing.IIndexingEngine.CancelBackupAsync(System.Threading.CancellationToken)">
+            <summary>
+            Requests the stopping the currently running backup operation.
+            </summary>
+            <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+            <returns>A Task that represents the asynchronous operation and wraps the <see cref="T:SenseNet.Search.Indexing.BackupResponse"/>.</returns>
+        </member>
+        <member name="M:SenseNet.Search.Indexing.IIndexingEngine.ClearIndexAsync(System.Threading.CancellationToken)">
+            <summary>
+            Deletes the current index and creates a brand new empty one.
+            </summary>
+            <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+            <returns>A Task that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:SenseNet.Search.Indexing.IIndexingEngine.ReadActivityStatusFromIndexAsync(System.Threading.CancellationToken)">
+            <summary>
+            Returns an IndexingActivityStatus instance that was associated to the index state.
+            Called once in the system startup sequence and periodically in the index health check.
+            </summary>
+            <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+            <returns>A Task that represents the asynchronous operation and wraps the indexing activity status.</returns>
+        </member>
+        <member name="M:SenseNet.Search.Indexing.IIndexingEngine.WriteActivityStatusToIndexAsync(SenseNet.Search.Indexing.IndexingActivityStatus,System.Threading.CancellationToken)">
+            <summary>
+            Associate the given indexing state to the index. This method is called after index writing.
+            In heavy load the status writing is not as dense than the index writing.
+            </summary>
+            <param name="state">The indexing activity state to write.</param>
+            <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+            <returns>A Task that represents the asynchronous operation.</returns>
+        </member>
+        <member name="M:SenseNet.Search.Indexing.IIndexingEngine.WriteIndexAsync(System.Collections.Generic.IEnumerable{SenseNet.Search.Querying.SnTerm},System.Collections.Generic.IEnumerable{SenseNet.Search.Indexing.DocumentUpdate},System.Collections.Generic.IEnumerable{SenseNet.Search.Indexing.IndexDocument},System.Threading.CancellationToken)">
+            <summary>
+            Executes an atomic indexing operation. Deletes all index documents by "deletions" parameter,
+              updates all documents by "updates" parameter, and adds all documents from the "addition" parameter.
+            Parameter data are not overlapped (e.g. addition is not deleted in one operation)
+              so the order of execution is not important (the inner implementation can be parallelized).
+            The method need to be synchronous operation so it returns after full execution.
+            Throws an exception if the operation is unsuccessful.
+            Note that if the indexing operates uncertainly (means index document existence is not sure),
+              it is strongly recommended to delete the document before addition.
+              In this case the document can be deleted by the VersionId term.
+            </summary>
+            <param name="deletions">Contains terms that define the documents to delete. Can be null or empty.</param>
+            <param name="updates">Contains term-document pairs that define the refreshed items. Can be null or empty.</param>
+            <param name="additions">Contains documents to add to index.</param>
+            <param name="cancellationToken">The token to monitor for cancellation requests.</param>
+            <returns>A Task that represents the asynchronous operation.</returns>
+        </member>
+        <member name="T:SenseNet.Search.Indexing.IndexProperties">
+            <summary>
+            Provides aggregated information of the index.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Indexing.IndexProperties.IndexingActivityStatus">
+            <summary>
+            Gets or sets the current <see cref="P:SenseNet.Search.Indexing.IndexProperties.IndexingActivityStatus"/>.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Indexing.IndexProperties.FieldInfo">
+            <summary>
+            Gets or sets ordered list of all field names and term count of the index.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Indexing.IndexProperties.VersionIds">
+            <summary>
+            Gets or sets ordered list of all VersionIds in the index.
+            </summary>
+        </member>
+        <member name="T:SenseNet.Search.Indexing.DocumentUpdate">
+            <summary>
+            Represents an atomic data structure to updating a document in the index.
+            </summary>
+        </member>
+        <member name="F:SenseNet.Search.Indexing.DocumentUpdate.UpdateTerm">
+            <summary>
+            A term that identifies the document in the index
+            </summary>
+        </member>
+        <member name="F:SenseNet.Search.Indexing.DocumentUpdate.Document">
+            <summary>
+            The new document that will overwrite the existing one.
+            </summary>
+        </member>
+        <member name="T:SenseNet.Search.Indexing.NotIndexedIndexDocument">
+            <summary>
+            Represents a class for the index document that will be not included in the index.
+            </summary>
+        </member>
+        <member name="T:SenseNet.Search.Indexing.IndexDocument">
+            <summary>
+            Represents a collection of index fields.
+            </summary>
+        </member>
+        <member name="F:SenseNet.Search.Indexing.IndexDocument.NotIndexedDocument">
+            <summary>
+            Represents an index document that will be not included in the index.
+            </summary>
+        </member>
+        <member name="F:SenseNet.Search.Indexing.IndexDocument.PostponedFields">
+            <summary>
+            Contains all field names that are indexed but not stored in the precompiled index document.
+            </summary>
+        </member>
+        <member name="F:SenseNet.Search.Indexing.IndexDocument.ForbiddenFields">
+            <summary>
+            Contains all field names that are not indexed.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Indexing.IndexDocument.VersionId">
+            <summary>
+            Returns with VersionId. Shortcut of the following call: GetIntegerValue(IndexFieldName.VersionId);
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Indexing.IndexDocument.Version">
+            <summary>
+            Returns with Version. Shortcut of the following call: GetStringValue(IndexFieldName.Version);
+            </summary>
+        </member>
+        <member name="M:SenseNet.Search.Indexing.IndexDocument.GetStringValue(System.String)">
+            <summary>
+            Returns with the System.String value of the existing named field.
+            If the field does not exist in the document, returns with null.
+            If the IndexValueType of the existing field is not String or StringArray, an ApplicationException will be thrown.
+            If the IndexValueType of the existing field is StringArray, returns with the first value of the array.
+            </summary>
+        </member>
+        <member name="M:SenseNet.Search.Indexing.IndexDocument.GetStringArrayValue(System.String)">
+            <summary>
+            Returns with the array of System.String value of the existing named field.
+            If the field does not exist in the document, returns with null.
+            If the IndexValueType of the existing field is not String or StringArray, an ApplicationException will be thrown.
+            If the IndexValueType of the existing field is String, returns with an one element array.
+            </summary>
+        </member>
+        <member name="M:SenseNet.Search.Indexing.IndexDocument.GetBooleanValue(System.String)">
+            <summary>
+            Returns with the System.Boolean value of the existing named field.
+            If the field does not exist in the document, returns with false.
+            If the IndexValueType of the existing field is not Bool, an ApplicationException will be thrown.
+            </summary>
+        </member>
+        <member name="M:SenseNet.Search.Indexing.IndexDocument.GetIntegerValue(System.String)">
+            <summary>
+            Returns with the System.Int32 value of the existing named field.
+            If the field does not exist in the document, returns with 0.
+            If the IndexValueType of the existing field is not Int, an ApplicationException will be thrown.
+            </summary>
+        </member>
+        <member name="M:SenseNet.Search.Indexing.IndexDocument.GetIntegerArrayValue(System.String)">
+            <summary>
+            Returns with the array of System.Int32 values of the existing named field.
+            If the field does not exist in the document, returns with null.
+            If the IndexValueType of the existing field is not Int or IntArray, an ApplicationException will be thrown.
+            If the IndexValueType of the existing field is Int, returns with an one element array.
+            </summary>
+        </member>
+        <member name="M:SenseNet.Search.Indexing.IndexDocument.GetLongValue(System.String)">
+            <summary>
+            Returns with the System.Int64 value of the existing named field.
+            If the field does not exist in the document, returns with 0l.
+            If the IndexValueType of the existing field is not Long, an ApplicationException will be thrown.
+            </summary>
+        </member>
+        <member name="M:SenseNet.Search.Indexing.IndexDocument.GetSingleValue(System.String)">
+            <summary>
+            Returns with the System.Single value of the existing named field.
+            If the field does not exist in the document, returns with 0f.
+            If the IndexValueType of the existing field is not Float, an ApplicationException will be thrown.
+            </summary>
+        </member>
+        <member name="M:SenseNet.Search.Indexing.IndexDocument.GetDoubleValue(System.String)">
+            <summary>
+            Returns with the System.Double value of the existing named field.
+            If the field does not exist in the document, returns with 0d.
+            If the IndexValueType of the existing field is not Double, an ApplicationException will be thrown.
+            </summary>
+        </member>
+        <member name="M:SenseNet.Search.Indexing.IndexDocument.GetDateTimeValue(System.String)">
+            <summary>
+            Returns with the System.DateTime value of the existing named field.
+            If the field does not exist in the document, returns with DateTime.MinValue.
+            If the IndexValueType of the existing field is not DateTime, an ApplicationException will be thrown.
+            </summary>
+        </member>
+        <member name="M:SenseNet.Search.Indexing.IndexDocument.Add(SenseNet.Search.Indexing.IndexField)">
+            <summary>
+            Adds or change the existing field in the document.
+            </summary>
+            <param name="field"></param>
+        </member>
+        <member name="M:SenseNet.Search.Indexing.IndexDocument.Remove(System.String)">
+            <summary>
+            Removes a field by name if it exists.
+            </summary>
+            <param name="fieldName"></param>
+        </member>
+        <member name="M:SenseNet.Search.Indexing.IndexDocument.HasField(System.String)">
+            <summary>
+            Returns with true if the document contains the field with the given field name.
+            </summary>
+            <param name="fieldName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SenseNet.Search.Indexing.IndexDocument.GetEnumerator">
+            <inheritdoc />
+        </member>
+        <member name="T:SenseNet.Search.Indexing.IndexingMode">
+            <summary>
+            Describes the field's indexing mode.
+            </summary>
+        </member>
+        <member name="F:SenseNet.Search.Indexing.IndexingMode.Default">
+            <summary>
+            Means "Analyzed"
+            </summary>
+        </member>
+        <member name="F:SenseNet.Search.Indexing.IndexingMode.Analyzed">
+            <summary>
+            The value is transformed by the associated text analyzer.
+            </summary>
+        </member>
+        <member name="F:SenseNet.Search.Indexing.IndexingMode.AnalyzedNoNorms">
+            <summary>
+            Not used. Inspired by similar option of the Lucene
+            (see: https://lucene.apache.org/core/3_5_0/api/core/org/apache/lucene/document/Field.Index.html#ANALYZED_NO_NORMS)
+            </summary>
+        </member>
+        <member name="F:SenseNet.Search.Indexing.IndexingMode.No">
+            <summary>
+            Field is not indexed.
+            </summary>
+        </member>
+        <member name="F:SenseNet.Search.Indexing.IndexingMode.NotAnalyzed">
+            <summary>
+            Field is indexed by it's raw value.
+            </summary>
+        </member>
+        <member name="F:SenseNet.Search.Indexing.IndexingMode.NotAnalyzedNoNorms">
+            <summary>
+            Not used. Inspired by similar option of the Lucene
+            (see: https://lucene.apache.org/core/3_5_0/api/core/org/apache/lucene/document/Field.Index.html#NOT_ANALYZED_NO_NORMS
+            </summary>
+        </member>
+        <member name="T:SenseNet.Search.Indexing.IndexStoringMode">
+            <summary>
+            Describes the field's storing mode in the index.
+            </summary>
+        </member>
+        <member name="F:SenseNet.Search.Indexing.IndexStoringMode.Default">
+            <summary>
+            Means "No"
+            </summary>
+        </member>
+        <member name="F:SenseNet.Search.Indexing.IndexStoringMode.No">
+            <summary>
+            The field's raw value is not stored in the index.
+            </summary>
+        </member>
+        <member name="F:SenseNet.Search.Indexing.IndexStoringMode.Yes">
+            <summary>
+            The field's raw value is stored in the index.
+            </summary>
+        </member>
+        <member name="T:SenseNet.Search.Indexing.IndexTermVector">
+            <summary>
+            Describes the term vector handling.
+            Used in Lucene based indexes.
+            See: https://lucene.apache.org/core/3_5_0/api/core/org/apache/lucene/document/Field.TermVector.html
+            </summary>
+        </member>
+        <member name="F:SenseNet.Search.Indexing.IndexTermVector.Default">
+            <summary>
+            Means "No"
+            </summary>
+        </member>
+        <member name="F:SenseNet.Search.Indexing.IndexTermVector.No">
+            <summary>
+            Term vector is not stored.
+            </summary>
+        </member>
+        <member name="F:SenseNet.Search.Indexing.IndexTermVector.WithOffsets">
+            <summary>
+            Term vector is stored with offset information.
+            </summary>
+        </member>
+        <member name="F:SenseNet.Search.Indexing.IndexTermVector.WithPositions">
+            <summary>
+            Term vector is stored with position information.
+            </summary>
+        </member>
+        <member name="F:SenseNet.Search.Indexing.IndexTermVector.WithPositionsOffsets">
+            <summary>
+            Term vector is stored with position and offset information.
+            </summary>
+        </member>
+        <member name="F:SenseNet.Search.Indexing.IndexTermVector.Yes">
+            <summary>
+            Term vector is stored.
+            </summary>
+        </member>
+        <member name="T:SenseNet.Search.Indexing.IndexField">
+            <summary>
+            Represents a field in the index.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Indexing.IndexField.Mode">
+            <summary>
+            Gets the IndexingMode of the field.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Indexing.IndexField.Store">
+            <summary>
+            Gets the IndexStoringMode of the field that describes whether the field's raw value is stored in the index or not.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Indexing.IndexField.TermVector">
+            <summary>
+            Gets the IndexTermVector handling of the field.
+            </summary>
+        </member>
+        <member name="M:SenseNet.Search.Indexing.IndexField.#ctor(System.String,System.String,SenseNet.Search.Indexing.IndexingMode,SenseNet.Search.Indexing.IndexStoringMode,SenseNet.Search.Indexing.IndexTermVector)">
+            <summary>
+            Initializes an instance of the IndexField with a named System.String value and indexing metadata.
+            </summary>
+            <param name="name">The name of the term.</param>
+            <param name="value">System.String value</param>
+            <param name="mode">Indexing mode.</param>
+            <param name="store">Index storing mode.</param>
+            <param name="termVector">Term vector handling.</param>
+        </member>
+        <member name="M:SenseNet.Search.Indexing.IndexField.#ctor(System.String,System.String[],SenseNet.Search.Indexing.IndexingMode,SenseNet.Search.Indexing.IndexStoringMode,SenseNet.Search.Indexing.IndexTermVector)">
+            <summary>
+            Initializes an instance of the IndexField with a named array of System.String and indexing metadata.
+            </summary>
+            <param name="name">The name of the term.</param>
+            <param name="value">Array of System.String</param>
+            <param name="mode">Indexing mode.</param>
+            <param name="store">Index storing mode.</param>
+            <param name="termVector">Term vector handling.</param>
+        </member>
+        <member name="M:SenseNet.Search.Indexing.IndexField.#ctor(System.String,System.Boolean,SenseNet.Search.Indexing.IndexingMode,SenseNet.Search.Indexing.IndexStoringMode,SenseNet.Search.Indexing.IndexTermVector)">
+            <summary>
+            Initializes an instance of the IndexField with a named System.Boolean value and indexing metadata.
+            </summary>
+            <param name="name">The name of the term.</param>
+            <param name="value">System.Boolean value</param>
+            <param name="mode">Indexing mode.</param>
+            <param name="store">Index storing mode.</param>
+            <param name="termVector">Term vector handling.</param>
+        </member>
+        <member name="M:SenseNet.Search.Indexing.IndexField.#ctor(System.String,System.Int32,SenseNet.Search.Indexing.IndexingMode,SenseNet.Search.Indexing.IndexStoringMode,SenseNet.Search.Indexing.IndexTermVector)">
+            <summary>
+            Initializes an instance of the IndexField with a named System.Int32 value and indexing metadata.
+            </summary>
+            <param name="name">The name of the term.</param>
+            <param name="value">System.Int32 value</param>
+            <param name="mode">Indexing mode.</param>
+            <param name="store">Index storing mode.</param>
+            <param name="termVector">Term vector handling.</param>
+        </member>
+        <member name="M:SenseNet.Search.Indexing.IndexField.#ctor(System.String,System.Int32[],SenseNet.Search.Indexing.IndexingMode,SenseNet.Search.Indexing.IndexStoringMode,SenseNet.Search.Indexing.IndexTermVector)">
+            <summary>
+            Initializes an instance of the IndexField with a named System.Int32 array and indexing metadata.
+            </summary>
+            <param name="name">The name of the term.</param>
+            <param name="value">System.Int32 value</param>
+            <param name="mode">Indexing mode.</param>
+            <param name="store">Index storing mode.</param>
+            <param name="termVector">Term vector handling.</param>
+        </member>
+        <member name="M:SenseNet.Search.Indexing.IndexField.#ctor(System.String,System.Int64,SenseNet.Search.Indexing.IndexingMode,SenseNet.Search.Indexing.IndexStoringMode,SenseNet.Search.Indexing.IndexTermVector)">
+            <summary>
+            Initializes an instance of the IndexField with a named System.Int64 value and indexing metadata.
+            </summary>
+            <param name="name">The name of the term.</param>
+            <param name="value">System.Int64 value</param>
+            <param name="mode">Indexing mode.</param>
+            <param name="store">Index storing mode.</param>
+            <param name="termVector">Term vector handling.</param>
+        </member>
+        <member name="M:SenseNet.Search.Indexing.IndexField.#ctor(System.String,System.Single,SenseNet.Search.Indexing.IndexingMode,SenseNet.Search.Indexing.IndexStoringMode,SenseNet.Search.Indexing.IndexTermVector)">
+            <summary>
+            Initializes an instance of the IndexField with a named System.Single value and indexing metadata.
+            </summary>
+            <param name="name">The name of the term.</param>
+            <param name="value">System.Single value</param>
+            <param name="mode">Indexing mode.</param>
+            <param name="store">Index storing mode.</param>
+            <param name="termVector">Term vector handling.</param>
+        </member>
+        <member name="M:SenseNet.Search.Indexing.IndexField.#ctor(System.String,System.Double,SenseNet.Search.Indexing.IndexingMode,SenseNet.Search.Indexing.IndexStoringMode,SenseNet.Search.Indexing.IndexTermVector)">
+            <summary>
+            Initializes an instance of the IndexField with a named System.Double value and indexing metadata.
+            </summary>
+            <param name="name">The name of the term.</param>
+            <param name="value">System.Double value</param>
+            <param name="mode">Indexing mode.</param>
+            <param name="store">Index storing mode.</param>
+            <param name="termVector">Term vector handling.</param>
+        </member>
+        <member name="M:SenseNet.Search.Indexing.IndexField.#ctor(System.String,System.DateTime,SenseNet.Search.Indexing.IndexingMode,SenseNet.Search.Indexing.IndexStoringMode,SenseNet.Search.Indexing.IndexTermVector)">
+            <summary>
+            Initializes an instance of the IndexField with a named System.DateTime value and indexing metadata.
+            </summary>
+            <param name="name">The name of the term.</param>
+            <param name="value">System.DateTime value</param>
+            <param name="mode">Indexing mode.</param>
+            <param name="store">Index storing mode.</param>
+            <param name="termVector">Term vector handling.</param>
+        </member>
+        <member name="T:SenseNet.Search.Indexing.IndexFieldAnalyzer">
+            <summary>
+            Specifies a text analyzer category assigned to a field.
+            The actually used underlying analyzer depends from the implementation.
+            </summary>
+        </member>
+        <member name="F:SenseNet.Search.Indexing.IndexFieldAnalyzer.Default">
+            <summary>
+            Means: Keyword
+            </summary>
+        </member>
+        <member name="F:SenseNet.Search.Indexing.IndexFieldAnalyzer.Keyword">
+            <summary>
+            Defines a text analyzer that uses the whole field value as one token.
+            </summary>
+        </member>
+        <member name="F:SenseNet.Search.Indexing.IndexFieldAnalyzer.Standard">
+            <summary>
+            Defines a text analyzer that applies lexical text analysis for stripping text to words and filters stop-words.
+            </summary>
+        </member>
+        <member name="F:SenseNet.Search.Indexing.IndexFieldAnalyzer.Whitespace">
+            <summary>
+            Defines a text analyzer that can split more terms along whitespaces.
+            </summary>
+        </member>
+        <member name="T:SenseNet.Search.Indexing.IndexingActivityStatus">
+            <summary>
+            Represents an indexing state
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Indexing.IndexingActivityStatus.Startup">
+            <summary>
+            Shortcut for empty indexing state.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Indexing.IndexingActivityStatus.LastActivityId">
+            <summary>
+            Gets or sets the last written activity id.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Indexing.IndexingActivityStatus.Gaps">
+            <summary>
+            Gets or sets an array of the missing activity ids that are less than the LastActivityId.
+            </summary>
+        </member>
+        <member name="M:SenseNet.Search.Indexing.IndexingActivityStatus.ToString">
+            <summary>
+            Returns with the string representation of this instance.
+            </summary>
+        </member>
+        <member name="M:SenseNet.Search.Indexing.IndexingActivityStatus.GapsToString(System.Int32[],System.Int32,System.Int32)">
+            <summary>
+            Returns with the string representation of the given gaps.
+            The string length can be limited with two parameter.
+            If the gaps length is greater than {maxCount} + {growth},
+            only the {maxCount} items will be converted. For example:
+            "14, 16, 21,... and 20 additional items".
+            </summary>
+        </member>
+        <member name="T:SenseNet.Search.Indexing.IPerFieldIndexingInfo">
+            <summary>
+            Defines metadata for indexing a field.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Indexing.IPerFieldIndexingInfo.Analyzer">
+            <summary>
+            Gets or sets the used analyzer category of the field.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Indexing.IPerFieldIndexingInfo.IndexFieldHandler">
+            <summary>
+            Gets or sets the converter class instance matching the field's data type.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Indexing.IPerFieldIndexingInfo.IndexingMode">
+            <summary>
+            Gets or sets the field's indexing mode.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Indexing.IPerFieldIndexingInfo.IndexStoringMode">
+            <summary>
+            Gets or sets the field's storing mode.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Indexing.IPerFieldIndexingInfo.TermVectorStoringMode">
+            <summary>
+            Gets or sets the term vector usage of the field.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Indexing.IPerFieldIndexingInfo.IsInIndex">
+            <summary>
+            Gets a value that is true if the field is indexed or sorted in the index.
+            This is a shortcut of aggregated value of the IndexingMode and IndexStoringMode.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Indexing.IPerFieldIndexingInfo.FieldDataType">
+            <summary>
+            Gets or sets the System.Type of the field's native value.
+            </summary>
+        </member>
+        <member name="T:SenseNet.Search.IndexValueType">
+            <summary>
+            Specifies the value types in the indexing and querying
+            </summary>
+        </member>
+        <member name="F:SenseNet.Search.IndexValueType.String">
+            <summary>Represents a System.String value.</summary>
+        </member>
+        <member name="F:SenseNet.Search.IndexValueType.StringArray">
+            <summary>Represents an array of System.String values.</summary>
+        </member>
+        <member name="F:SenseNet.Search.IndexValueType.Bool">
+            <summary>Represents a System.Boolean value.</summary>
+        </member>
+        <member name="F:SenseNet.Search.IndexValueType.Int">
+            <summary>Represents a System.Int32 value.</summary>
+        </member>
+        <member name="F:SenseNet.Search.IndexValueType.IntArray">
+            <summary>Represents an array of System.Int32 values.</summary>
+        </member>
+        <member name="F:SenseNet.Search.IndexValueType.Long">
+            <summary>Represents a System.Int64 value.</summary>
+        </member>
+        <member name="F:SenseNet.Search.IndexValueType.Float">
+            <summary>Represents a System.Single value.</summary>
+        </member>
+        <member name="F:SenseNet.Search.IndexValueType.Double">
+            <summary>Represents a System.Double value.</summary>
+        </member>
+        <member name="F:SenseNet.Search.IndexValueType.DateTime">
+            <summary>Represents a System.DateTime value.</summary>
+        </member>
+        <member name="T:SenseNet.Search.IndexValue">
+            <summary>
+            Defines a universal atomic data in the indexing and querying.
+            </summary>
+        </member>
+        <member name="F:SenseNet.Search.IndexValue.YesList">
+            <summary>
+            Contains all values that mean "true". These are: "1", "true", "y" and "yes"
+            </summary>
+        </member>
+        <member name="F:SenseNet.Search.IndexValue.NoList">
+            <summary>
+            Contains all values that mean "false". These are: "0", "false", "n" and "no"
+            </summary>
+        </member>
+        <member name="F:SenseNet.Search.IndexValue.Yes">
+            <summary>
+            Generalized value of the "true" used in indexing and querying.
+            </summary>
+        </member>
+        <member name="F:SenseNet.Search.IndexValue.No">
+            <summary>
+            Generalized value of the "false" used in indexing and querying.
+            </summary>
+        </member>
+        <member name="M:SenseNet.Search.IndexValue.#ctor(System.String)">
+            <summary>
+            Initializes an instance of the IndexValue with a System.String value.
+            </summary>
+            <param name="value">System.String value</param>
+        </member>
+        <member name="M:SenseNet.Search.IndexValue.#ctor(System.String[])">
+            <summary>
+            Initializes an instance of the IndexValue with an array of System.String value.
+            </summary>
+            <param name="value">Array of System.String value</param>
+        </member>
+        <member name="M:SenseNet.Search.IndexValue.#ctor(System.Boolean)">
+            <summary>
+            Initializes an instance of the IndexValue with a System.Boolean value.
+            </summary>
+            <param name="value">System.Boolean value</param>
+        </member>
+        <member name="M:SenseNet.Search.IndexValue.#ctor(System.Int32)">
+            <summary>
+            Initializes an instance of the IndexValue with a System.Int32 value.
+            </summary>
+            <param name="value">System.Int32 value</param>
+        </member>
+        <member name="M:SenseNet.Search.IndexValue.#ctor(System.Int32[])">
+            <summary>
+            Initializes an instance of the IndexValue with an array of System.Int32.
+            </summary>
+            <param name="value">System.Int32 value</param>
+        </member>
+        <member name="M:SenseNet.Search.IndexValue.#ctor(System.Int64)">
+            <summary>
+            Initializes an instance of the IndexValue with a System.Int64 value.
+            </summary>
+            <param name="value">System.Int64 value</param>
+        </member>
+        <member name="M:SenseNet.Search.IndexValue.#ctor(System.Single)">
+            <summary>
+            Initializes an instance of the IndexValue with a System.Single value.
+            </summary>
+            <param name="value">System.Single value</param>
+        </member>
+        <member name="M:SenseNet.Search.IndexValue.#ctor(System.Double)">
+            <summary>
+            Initializes an instance of the IndexValue with a System.Double value.
+            </summary>
+            <param name="value">System.Double value</param>
+        </member>
+        <member name="M:SenseNet.Search.IndexValue.#ctor(System.DateTime)">
+            <summary>
+            Initializes an instance of the IndexValue with a System.DateTime value.
+            </summary>
+            <param name="value">System.DateTime value</param>
+        </member>
+        <member name="P:SenseNet.Search.IndexValue.Type">
+            <summary>
+            Gets the type of the value.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.IndexValue.StringValue">
+            <summary>
+            Gets the System.String value of the instance if the Type is IndexValueType.String, otherwise null.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.IndexValue.StringArrayValue">
+            <summary>
+            Gets the array of System.String value of the instance if the Type is IndexValueType.StringArray, otherwise null.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.IndexValue.BooleanValue">
+            <summary>
+            Gets the System.Boolean value of the instance if the Type is IndexValueType.Bool, otherwise false.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.IndexValue.IntegerValue">
+            <summary>
+            Gets the System.Int32 value of the instance if the Type is IndexValueType.Int, otherwise 0.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.IndexValue.IntegerArrayValue">
+            <summary>
+            Gets an array of System.Int32 values of the instance if the Type is IndexValueType.IntArray, otherwise null.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.IndexValue.LongValue">
+            <summary>
+            Gets the System.Int64 value of the instance if the Type is IndexValueType.Long, otherwise 0l.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.IndexValue.SingleValue">
+            <summary>
+            Gets the System.Single value of the instance if the Type is IndexValueType.Float, otherwise 0f.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.IndexValue.DoubleValue">
+            <summary>
+            Gets the System.Double value of the instance if the Type is IndexValueType.Double, otherwise 0d.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.IndexValue.DateTimeValue">
+            <summary>
+            Gets the System.DateTime value of the instance if the Type is IndexValueType.DateTime, otherwise DateTime.MinValue.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.IndexValue.ValueAsString">
+            <summary>
+            Gets the type-independent string representation of the value.
+            </summary>
+        </member>
+        <member name="T:SenseNet.Search.ISearchEngine">
+            <summary>
+            Describes the top level interface of the searching functionality.
+            Searching is union of querying and indexing in this component.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.ISearchEngine.IndexingEngine">
+            <summary>
+            Gets an IIndexingEngine implementation. The instance is not changed during the repository's lifetime. 
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.ISearchEngine.QueryEngine">
+            <summary>
+            Gets an IQueryEngine implementation. The instance is not changed during the repository's lifetime.
+            </summary>
+        </member>
+        <member name="M:SenseNet.Search.ISearchEngine.GetAnalyzers">
+            <summary>
+            Gets a key-value pairs of the fields with analyzer that is different from the default.
+            </summary>
+            <returns>Dictionary of FieldName-IndexFieldAnalyzer pairs.</returns>
+        </member>
+        <member name="M:SenseNet.Search.ISearchEngine.SetIndexingInfo(System.Collections.Generic.IDictionary{System.String,SenseNet.Search.Indexing.IPerFieldIndexingInfo})">
+            <summary>
+            Method to keep index descriptors up to date.
+            Called by ContentTypeManager from its initialization method when the content type tree is changed.
+            </summary>
+            <param name="indexingInfo">Key value pairs of the indexing descriptors of all fields.</param>
+        </member>
+        <member name="T:SenseNet.Search.Querying.Cql">
+            <summary>
+            Defines the Contnt Query Language related constants.
+            </summary>
+        </member>
+        <member name="F:SenseNet.Search.Querying.Cql.StringTerminatorChars">
+            <summary>
+            A System.String that contains all string escape characters.
+            If a string value contains any of these characters, 
+            the value should be wrapped in quotation marks or apostrophes.
+            </summary>
+        </member>
+        <member name="T:SenseNet.Search.Querying.Cql.Keyword">
+            <summary>
+            Defines constants for keywords of the Content Query Language
+            </summary>
+        </member>
+        <member name="F:SenseNet.Search.Querying.Cql.Keyword.Or">
+            <summary>Value: "OR"</summary>
+        </member>
+        <member name="F:SenseNet.Search.Querying.Cql.Keyword.And">
+            <summary>Value: "AND"</summary>
+        </member>
+        <member name="F:SenseNet.Search.Querying.Cql.Keyword.Not">
+            <summary>Value: "NOT"</summary>
+        </member>
+        <member name="F:SenseNet.Search.Querying.Cql.Keyword.To">
+            <summary>Value: "TO"</summary>
+        </member>
+        <member name="F:SenseNet.Search.Querying.Cql.Keyword.Select">
+            <summary>Value: ".SELECT"</summary>
+        </member>
+        <member name="F:SenseNet.Search.Querying.Cql.Keyword.Skip">
+            <summary>Value: ".SKIP"</summary>
+        </member>
+        <member name="F:SenseNet.Search.Querying.Cql.Keyword.Top">
+            <summary>Value: ".TOP"</summary>
+        </member>
+        <member name="F:SenseNet.Search.Querying.Cql.Keyword.Sort">
+            <summary>Value: ".SORT"</summary>
+        </member>
+        <member name="F:SenseNet.Search.Querying.Cql.Keyword.ReverseSort">
+            <summary>Value: ".REVERSESORT"</summary>
+        </member>
+        <member name="F:SenseNet.Search.Querying.Cql.Keyword.Autofilters">
+            <summary>Value: ".AUTOFILTERS"</summary>
+        </member>
+        <member name="F:SenseNet.Search.Querying.Cql.Keyword.Lifespan">
+            <summary>Value: ".LIFESPAN"</summary>
+        </member>
+        <member name="F:SenseNet.Search.Querying.Cql.Keyword.CountOnly">
+            <summary>Value: ".COUNTONLY"</summary>
+        </member>
+        <member name="F:SenseNet.Search.Querying.Cql.Keyword.Quick">
+            <summary>Value: ".QUICK"</summary>
+        </member>
+        <member name="F:SenseNet.Search.Querying.Cql.Keyword.AllVersions">
+            <summary>Value: ".ALLVERSIONS"</summary>
+        </member>
+        <member name="F:SenseNet.Search.Querying.Cql.Keyword.On">
+            <summary>Value: "ON"</summary>
+        </member>
+        <member name="F:SenseNet.Search.Querying.Cql.Keyword.Off">
+            <summary>Value: "OFF"</summary>
+        </member>
+        <member name="T:SenseNet.Search.Querying.ExecutionHint">
+            <summary>
+            Defines options for query execution source recommendation.
+            Not used in this release.
+            </summary>
+        </member>
+        <member name="F:SenseNet.Search.Querying.ExecutionHint.None">
+            <summary>
+            There is no recommendation.
+            </summary>
+        </member>
+        <member name="F:SenseNet.Search.Querying.ExecutionHint.ForceRelationalEngine">
+            <summary>
+            Use meta search engine if available.
+            </summary>
+        </member>
+        <member name="F:SenseNet.Search.Querying.ExecutionHint.ForceIndexedEngine">
+            <summary>
+            Use regular search engine if available.
+            </summary>
+        </member>
+        <member name="T:SenseNet.Search.Querying.IMetaQueryEngine">
+            <summary>
+            Defines query operations for increasing performance purposes.
+            </summary>
+        </member>
+        <member name="M:SenseNet.Search.Querying.IMetaQueryEngine.TryExecuteQuery(SenseNet.Search.Querying.SnQuery,SenseNet.Search.Querying.IPermissionFilter,SenseNet.Search.Querying.IQueryContext)">
+            <summary>
+            Returns with the permitted hit collection defined in the query.
+            If there is any problem or the query is not executable in this component, returns with null.
+            </summary>
+            <param name="query">Defines the query.</param>
+            <param name="filter">Supports mermission check methods.</param>
+            <param name="context">Contains additional data required to execution.</param>
+            <returns>
+            Contains two properties:
+            Hits: contains content identifier collection in the desired order defined in the query.
+            TotalCount: if the CountAllPages of the query is false, the TotalCount need to be the count of Hits
+            otherwise the count of hits without skip and top restrictions.
+            </returns>
+        </member>
+        <member name="M:SenseNet.Search.Querying.IMetaQueryEngine.TryExecuteQueryAndProject(SenseNet.Search.Querying.SnQuery,SenseNet.Search.Querying.IPermissionFilter,SenseNet.Search.Querying.IQueryContext)">
+            <summary>
+            Returns with the permitted hit collection defined in the query.
+            Every hit is the matched content's field defined in the query's Projection property.
+            If there is any problem or the query is not executable in this component, returns with null.
+            </summary>
+            <param name="query">Defines the query.</param>
+            <param name="filter">Supports mermission check methods.</param>
+            <param name="context">Contains additional data required to execution.</param>
+            <returns>
+            Contains two properties:
+            Hits: string value collection of the content property values.
+            Field name is defined in the query.Projection property.
+            Order of hits is defined in the query.
+            TotalCount: if the CountAllPages of the query is false, the TotalCount need to be the count of Hits
+            otherwise the count of hits without skip and top restrictions.
+            </returns>
+        </member>
+        <member name="T:SenseNet.Search.Querying.NullMetaQueryEngine">
+            <inheritdoc />
+            <summary>
+            Defines a class for a placeholder object that implements the IMetaQueryEngine interface.
+            </summary>
+        </member>
+        <member name="M:SenseNet.Search.Querying.NullMetaQueryEngine.TryExecuteQuery(SenseNet.Search.Querying.SnQuery,SenseNet.Search.Querying.IPermissionFilter,SenseNet.Search.Querying.IQueryContext)">
+            <inheritdoc />
+        </member>
+        <member name="M:SenseNet.Search.Querying.NullMetaQueryEngine.TryExecuteQueryAndProject(SenseNet.Search.Querying.SnQuery,SenseNet.Search.Querying.IPermissionFilter,SenseNet.Search.Querying.IQueryContext)">
+            <inheritdoc />
+        </member>
+        <member name="T:SenseNet.Search.Querying.IPermissionFilter">
+            <summary>
+            Defines a permission checker method for authorize the query hit candidates.
+            </summary>
+        </member>
+        <member name="M:SenseNet.Search.Querying.IPermissionFilter.IsPermitted(System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            Authorizes a query hit candidate.
+            </summary>
+        </member>
+        <member name="T:SenseNet.Search.Querying.IPermissionFilterFactory">
+            <summary>
+            Defines an IPermissionFilter factory.
+            </summary>
+        </member>
+        <member name="M:SenseNet.Search.Querying.IPermissionFilterFactory.Create(SenseNet.Search.Querying.SnQuery,SenseNet.Search.Querying.IQueryContext)">
+            <summary>
+            Returns with any implementation instance of the IPermissionFilterFactory.
+            Parameters help to choose creation options.
+            Called in every query execution.
+            </summary>
+        </member>
+        <member name="T:SenseNet.Search.Querying.IQueryContext">
+            <summary>
+            Defines a context for query execution.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Querying.IQueryContext.Settings">
+            <summary>
+            Gets the current query extension values (top, skip, sort etc.).
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Querying.IQueryContext.UserId">
+            <summary>
+            Gets the logged in user's id.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Querying.IQueryContext.QueryEngine">
+            <summary>
+            Gets the current IQueryEngine instance.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Querying.IQueryContext.MetaQueryEngine">
+            <summary>
+            Gets the current IMetaQueryEngine instance.
+            Not used in this release.
+            </summary>
+        </member>
+        <member name="M:SenseNet.Search.Querying.IQueryContext.GetPerFieldIndexingInfo(System.String)">
+            <summary>
+            Returns a field indexing metadata by given fieldName.
+            </summary>
+        </member>
+        <member name="T:SenseNet.Search.Querying.IQueryEngine">
+            <summary>
+            Defines query operations for general purposes.
+            </summary>
+        </member>
+        <member name="M:SenseNet.Search.Querying.IQueryEngine.ExecuteQuery(SenseNet.Search.Querying.SnQuery,SenseNet.Search.Querying.IPermissionFilter,SenseNet.Search.Querying.IQueryContext)">
+            <summary>
+            Returns with the permitted hit collection defined in the query.
+            If there is any problem, throws an exception.
+            </summary>
+            <param name="query">Defines the query.</param>
+            <param name="filter">Supports mermission check methods.</param>
+            <param name="context">Contains additional data required to execution.</param>
+            <returns>
+            Contains two properties:
+            Hits: contains content identifier collection in the desired order defined in the query.
+            TotalCount: if the CountAllPages of the query is false, the TotalCount need to be the count of Hits
+            otherwise the count of hits without skip and top restrictions.
+            </returns>
+        </member>
+        <member name="M:SenseNet.Search.Querying.IQueryEngine.ExecuteQueryAndProject(SenseNet.Search.Querying.SnQuery,SenseNet.Search.Querying.IPermissionFilter,SenseNet.Search.Querying.IQueryContext)">
+            <summary>
+            Returns with the permitted hit collection defined in the query.
+            Every hit is the matched content's field defined in the query's Projection property.
+            If there is any problem, throws an exception.
+            </summary>
+            <param name="query">Defines the query.</param>
+            <param name="filter">Supports mermission check methods.</param>
+            <param name="context">Contains additional data required to execution.</param>
+            <returns>
+            Contains two properties:
+            Hits: string value collection of the content property values.
+            Field name is defined in the query.Projection property.
+            Order of hits is defined in the query.
+            TotalCount: if the CountAllPages of the query is false, the TotalCount need to be the count of Hits
+            otherwise the count of hits without skip and top restrictions.
+            </returns>
+        </member>
+        <member name="T:SenseNet.Search.Querying.LogicalOperator">
+            <summary>
+            Defines logical operators for query related descriptors.
+            </summary>
+        </member>
+        <member name="F:SenseNet.Search.Querying.LogicalOperator.And">
+            <summary>Logical {and} operator.</summary>
+        </member>
+        <member name="F:SenseNet.Search.Querying.LogicalOperator.Or">
+            <summary>Logical {or} operator.</summary>
+        </member>
+        <member name="T:SenseNet.Search.Querying.Parser.CompilerException">
+            <summary>
+            Defines an exception class for any query compilation error.
+            </summary>
+        </member>
+        <member name="M:SenseNet.Search.Querying.Parser.CompilerException.#ctor">
+            <inheritdoc />
+        </member>
+        <member name="M:SenseNet.Search.Querying.Parser.CompilerException.#ctor(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:SenseNet.Search.Querying.Parser.CompilerException.#ctor(System.String,System.Exception)">
+            <inheritdoc />
+        </member>
+        <member name="M:SenseNet.Search.Querying.Parser.CompilerException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <inheritdoc />
+        </member>
+        <member name="T:SenseNet.Search.Querying.Parser.LineInfo">
+            <summary>
+            Represents a position in a CQL query text.
+            Instantiated in the CQL parsing process.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Querying.Parser.LineInfo.Line">
+            <summary>
+            Number of current line (first: 1).
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Querying.Parser.LineInfo.Column">
+            <summary>
+            Number of current character in the current line (first: 1).
+            </summary>
+        </member>
+        <member name="M:SenseNet.Search.Querying.Parser.LineInfo.ToString">
+            <summary>
+            String representation of this LineInfo instance.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:SenseNet.Search.Querying.Parser.ParserException">
+            <summary>
+            Defines an exception class for any CQL query parsing error.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Querying.Parser.ParserException.LineInfo">
+            <summary>
+            Gets the query position information where the exception was caused.
+            </summary>
+        </member>
+        <member name="M:SenseNet.Search.Querying.Parser.ParserException.#ctor(SenseNet.Search.Querying.Parser.LineInfo)">
+            <summary>
+            Initializes a new instance of the ParserException with the relevant query position information.
+            </summary>
+        </member>
+        <member name="M:SenseNet.Search.Querying.Parser.ParserException.#ctor(System.String,SenseNet.Search.Querying.Parser.LineInfo)">
+            <summary>
+            Initializes a new instance of the ParserException with a message and the relevant query position information.
+            </summary>
+        </member>
+        <member name="M:SenseNet.Search.Querying.Parser.ParserException.#ctor(System.String,System.Exception,SenseNet.Search.Querying.Parser.LineInfo)">
+            <summary>
+            Initializes a new instance of the ParserException with a message, the inner exception and the relevant query position information.
+            </summary>
+        </member>
+        <member name="M:SenseNet.Search.Querying.Parser.ParserException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <inheritdoc />
+        </member>
+        <member name="T:SenseNet.Search.Querying.Parser.Predicates.Occurence">
+            <summary>
+            Defines clause occurence options in CQL queries.
+            </summary>
+        </member>
+        <member name="F:SenseNet.Search.Querying.Parser.Predicates.Occurence.Default">
+            <summary>
+            Means: Should
+            </summary>
+        </member>
+        <member name="F:SenseNet.Search.Querying.Parser.Predicates.Occurence.Should">
+            <summary>
+            The clause SHOULD appear in the matching document.
+            </summary>
+        </member>
+        <member name="F:SenseNet.Search.Querying.Parser.Predicates.Occurence.Must">
+            <summary>
+            The clause MUST appear in the matching document.
+            </summary>
+        </member>
+        <member name="F:SenseNet.Search.Querying.Parser.Predicates.Occurence.MustNot">
+            <summary>
+            The clause MUST NOT appear in the matching document.
+            </summary>
+        </member>
+        <member name="T:SenseNet.Search.Querying.Parser.Predicates.LogicalClause">
+            <summary>
+            Defines a logical clause inspired by Lucene query syntax.
+            This clause is any clause expanded by an occurence.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Querying.Parser.Predicates.LogicalClause.Predicate">
+            <summary>
+            Gets the base predicate of the clause.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Querying.Parser.Predicates.LogicalClause.Occur">
+            <summary>
+            Gets or sets the occurence of the predicate.
+            </summary>
+        </member>
+        <member name="M:SenseNet.Search.Querying.Parser.Predicates.LogicalClause.#ctor(SenseNet.Search.Querying.Parser.Predicates.SnQueryPredicate,SenseNet.Search.Querying.Parser.Predicates.Occurence)">
+            <summary>
+            Initializes a new LogicalClause instance.
+            </summary>
+            <param name="predicate">Any predicate.</param>
+            <param name="occur">Occurence</param>
+        </member>
+        <member name="M:SenseNet.Search.Querying.Parser.Predicates.LogicalClause.ToString">
+            <summary>Returns a string that represents the current object.</summary>
+        </member>
+        <member name="T:SenseNet.Search.Querying.Parser.Predicates.LogicalPredicate">
+            <summary>
+            Defines a logical predicate that represents one level of the parenthesis in the CQL queries.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Querying.Parser.Predicates.LogicalPredicate.Clauses">
+            <summary>
+            Gets the list of the logical clauses.
+            </summary>
+        </member>
+        <member name="M:SenseNet.Search.Querying.Parser.Predicates.LogicalPredicate.#ctor">
+            <summary>
+            Initializes a new instance of LogicalPredicate with empty clause list.
+            </summary>
+        </member>
+        <member name="M:SenseNet.Search.Querying.Parser.Predicates.LogicalPredicate.#ctor(System.Collections.Generic.IEnumerable{SenseNet.Search.Querying.Parser.Predicates.LogicalClause})">
+            <summary>
+            Initializes a new instance of LogicalPredicate with an initial clause list.
+            </summary>
+        </member>
+        <member name="M:SenseNet.Search.Querying.Parser.Predicates.LogicalPredicate.ToString">
+            <summary>Returns a string that represents the current object.</summary>
+        </member>
+        <member name="T:SenseNet.Search.Querying.Parser.Predicates.RangePredicate">
+            <summary>
+            Defines a range predicate inspired by Lucene query syntax.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Querying.Parser.Predicates.RangePredicate.FieldName">
+            <summary>
+            Gets the field name of the predicate.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Querying.Parser.Predicates.RangePredicate.Min">
+            <summary>
+            Gets the minimum value of the range. It can be null.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Querying.Parser.Predicates.RangePredicate.Max">
+            <summary>
+            Gets the maximum value of the range. It can be null.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Querying.Parser.Predicates.RangePredicate.MinExclusive">
+            <summary>
+            Gets the value that is true if the minimum value is in the range.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Querying.Parser.Predicates.RangePredicate.MaxExclusive">
+            <summary>
+            Gets the value that is true if the maximum value is in the range.
+            </summary>
+        </member>
+        <member name="M:SenseNet.Search.Querying.Parser.Predicates.RangePredicate.#ctor(System.String,SenseNet.Search.IndexValue,SenseNet.Search.IndexValue,System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of RangePredicate.
+            </summary>
+        </member>
+        <member name="M:SenseNet.Search.Querying.Parser.Predicates.RangePredicate.ToString">
+            <summary>Returns a string that represents the current object.</summary>
+        </member>
+        <member name="T:SenseNet.Search.Querying.Parser.Predicates.SimplePredicate">
+            <summary>
+            Represents a simple clause on the CQL query.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Querying.Parser.Predicates.SimplePredicate.FieldName">
+            <summary>
+            Gets the field name of the clause.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Querying.Parser.Predicates.SimplePredicate.Value">
+            <summary>
+            Gets the value of the clause.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Querying.Parser.Predicates.SimplePredicate.FuzzyValue">
+            <summary>
+            Gets a value for compiling fuzzy queries.
+            </summary>
+        </member>
+        <member name="M:SenseNet.Search.Querying.Parser.Predicates.SimplePredicate.#ctor(System.String,SenseNet.Search.IndexValue,System.Nullable{System.Double})">
+            <summary>
+            Initializes a new SimplePredicate instance.
+            </summary>
+            <param name="fieldName">Name of the field in the clause.</param>
+            <param name="value">Value of the clause.</param>
+            <param name="fuzzyValue">Fuzzy value. Optional, default value is null.</param>
+        </member>
+        <member name="M:SenseNet.Search.Querying.Parser.Predicates.SimplePredicate.ToString">
+            <summary>Returns a string that represents the current object.</summary>
+        </member>
+        <member name="T:SenseNet.Search.Querying.Parser.Predicates.SnQueryPredicate">
+            <summary>
+            The base class of the predicate class family used in SnQuery
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Querying.Parser.Predicates.SnQueryPredicate.Boost">
+            <summary>
+            Gets or sets the weight of the current predicate. The value can be null.
+            </summary>
+        </member>
+        <member name="T:SenseNet.Search.Querying.QueryExecutionMode">
+            <summary>
+            Defines query executor performance tuning options.
+            </summary>
+        </member>
+        <member name="F:SenseNet.Search.Querying.QueryExecutionMode.Default">
+            <summary>Default value of the filter. Interpretation is context-dependent.</summary>
+        </member>
+        <member name="F:SenseNet.Search.Querying.QueryExecutionMode.Strict">
+            <summary>The query result cannot contain dirty hits. The query execution can be slower.</summary>
+        </member>
+        <member name="F:SenseNet.Search.Querying.QueryExecutionMode.Quick">
+            <summary>The query execution should be fast but the query result can contain dirty hits.</summary>
+        </member>
+        <member name="T:SenseNet.Search.Querying.QueryResult`1">
+            <summary>
+            Represens a result of the SnQuery execution.
+            </summary>
+            <typeparam name="T">Can be int or string.</typeparam>
+        </member>
+        <member name="F:SenseNet.Search.Querying.QueryResult`1.Empty">
+            <summary>
+            Represents the empty result.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Querying.QueryResult`1.Hits">
+            <summary>
+            Gets the resulted items.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Querying.QueryResult`1.TotalCount">
+            <summary>
+            Gets the total count of permitted items without top and skip restrictions.
+            </summary>
+        </member>
+        <member name="M:SenseNet.Search.Querying.QueryResult`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Int32)">
+            <summary>
+            Initializes a new QueryResult instance.
+            </summary>
+            <param name="hits">The resulted items.</param>
+            <param name="totalCount">Total count of items.</param>
+        </member>
+        <member name="T:SenseNet.Search.Querying.SnQuery">
+            <summary>
+            Represents a parsed CQL query encapsulating all extensions.
+            </summary>
+        </member>
+        <member name="F:SenseNet.Search.Querying.SnQuery.EmptyText">
+            <summary>
+            Constant value to represent an empty query text for internal usage.
+            </summary>
+        </member>
+        <member name="F:SenseNet.Search.Querying.SnQuery.EmptyInnerQueryText">
+            <summary>
+            Constant value to represent an empty inner query text for internal usage.
+            </summary>
+        </member>
+        <member name="F:SenseNet.Search.Querying.SnQuery.DefaultSimilarity">
+            <summary>
+            Constant value of the default scoring. The value is 0.5.
+            </summary>
+        </member>
+        <member name="F:SenseNet.Search.Querying.SnQuery.DefaultFuzzyValue">
+            <summary>
+            Constant value of the default fuzzy. The value is 0.5.
+            </summary>
+        </member>
+        <member name="F:SenseNet.Search.Querying.SnQuery.NullReferenceValue">
+            <summary>
+            Constant value to represent the null reference. The value is "null".
+            </summary>
+        </member>
+        <member name="F:SenseNet.Search.Querying.SnQuery.EnableAutofiltersDefaultValue">
+            <summary>
+            Constant value of the default auto filter status. The value is FilterStatus.Enabled.
+            </summary>
+        </member>
+        <member name="F:SenseNet.Search.Querying.SnQuery.EnableLifespanFilterDefaultValue">
+            <summary>
+            Constant value of the default lifespan filter status. The value is FilterStatus.Disabled.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Querying.SnQuery.Querytext">
+            <summary>
+            Gets the original text representation of the query.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Querying.SnQuery.Projection">
+            <summary>
+            Gets the projection value. Default projection is NodeId.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Querying.SnQuery.Top">
+            <summary>
+            Gets or sets the maximum count of the query result.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Querying.SnQuery.Skip">
+            <summary>
+            Gets or sets the number of items that are skipped in the beginning of the result list. 
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Querying.SnQuery.Sort">
+            <summary>
+            Gets or sets the sorting criterias in order of importance.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Querying.SnQuery.HasSort">
+            <summary>
+            Gets true if the Sort property is not null and contains one or more elements.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Querying.SnQuery.QueryTree">
+            <summary>
+            Gets the predicate tree representation of the query.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Querying.SnQuery.EnableAutofilters">
+            <summary>
+            Gets or sets the value of the switch that controls the auto filtering.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Querying.SnQuery.EnableLifespanFilter">
+            <summary>
+            Gets or sets the value of the switch that controls the lifespan filtering.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Querying.SnQuery.CountOnly">
+            <summary>
+            Gets or set a value that is true if only the conunt of query result is relevant.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Querying.SnQuery.QueryExecutionMode">
+            <summary>
+            Gets or sets the performance option of the query executor.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Querying.SnQuery.AllVersions">
+            <summary>
+            Gets or set a value that is true if all versions are relavant in the query result.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Querying.SnQuery.CountAllPages">
+            <summary>
+            Gets or sets a value that is true if the query result need to contain all count
+            without "top" and "skip" restrictions.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Querying.SnQuery.ThrowIfEmpty">
+            <summary>
+            Gets or sets a value to indicate that the result set have to contains one or more elements or not.
+            This is a simple storage slot.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Querying.SnQuery.ExistenceOnly">
+            <summary>
+            Gets or sets a value to indicate that only the first item's existence is relevant.
+            This is a simple storage slot.
+            </summary>
+        </member>
+        <member name="M:SenseNet.Search.Querying.SnQuery.SetPermissionFilterFactory(SenseNet.Search.Querying.IPermissionFilterFactory)">
+            <summary>
+            Receives an IPermissionFilterFactory implementation instance in the startup process.
+            This instance will be used in calling Execute method of the concrete IQueryEngine implementation.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Querying.SnQuery.FullSetPredicate">
+            <summary>
+            Defines a query predicate that represents all index documents.
+            </summary>
+        </member>
+        <member name="M:SenseNet.Search.Querying.SnQuery.Query(System.String,SenseNet.Search.Querying.IQueryContext)">
+            <summary>
+            Executes a CQL query and returns with a QueryResult&lt;int&gt; instance containing id set and count
+            </summary>
+        </member>
+        <member name="M:SenseNet.Search.Querying.SnQuery.Execute(SenseNet.Search.Querying.IQueryContext)">
+            <summary>
+            Executes the represented query and returns with a QueryResult&lt;int&gt; instance containing id set and count
+            </summary>
+        </member>
+        <member name="M:SenseNet.Search.Querying.SnQuery.QueryAndProject(System.String,SenseNet.Search.Querying.IQueryContext)">
+            <summary>
+            Executes a CQL query and returns with a QueryResult&lt;string&gt; instance containing set of projected values and its count.
+            </summary>
+        </member>
+        <member name="M:SenseNet.Search.Querying.SnQuery.ExecuteAndProject(SenseNet.Search.Querying.IQueryContext)">
+            <summary>
+            Executes the represented query and returns with a QueryResult&lt;string&gt; instance containing set of projected values and its count.
+            </summary>
+        </member>
+        <member name="M:SenseNet.Search.Querying.SnQuery.AddAndClause(SenseNet.Search.Querying.Parser.Predicates.SnQueryPredicate)">
+            <summary>
+            Replaces the top level predicate to a new LogicalPredicate that
+             contains the original top level predicate and a given predicate
+             encapsulated by two individual LogicalClause with "Must" occurence.
+            </summary>
+        </member>
+        <member name="M:SenseNet.Search.Querying.SnQuery.AddOrClause(SenseNet.Search.Querying.Parser.Predicates.SnQueryPredicate)">
+            <summary>
+            Replaces the top level predicate to a new LogicalPredicate that
+             contains the original top level predicate and a given predicate
+             encapsulated by two individual LogicalClause with "Should" occurence.
+            </summary>
+        </member>
+        <member name="M:SenseNet.Search.Querying.SnQuery.AddClause(SenseNet.Search.Querying.Parser.Predicates.SnQueryPredicate,SenseNet.Search.Querying.Parser.Predicates.Occurence)">
+            <summary>
+            Replaces the top level predicate to a new LogicalPredicate that
+             contains the original top level predicate and a given predicate
+             encapsulated by two individual LogicalClause with the given occurence.
+            </summary>
+        </member>
+        <member name="M:SenseNet.Search.Querying.SnQuery.Parse(System.String,SenseNet.Search.Querying.IQueryContext)">
+            <summary>
+            Creates a new SnQuery instance by parsing the given CQL query
+             and context containing query settings.
+            </summary>
+            <param name="queryText"></param>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SenseNet.Search.Querying.SnQuery.Create(SenseNet.Search.Querying.Parser.Predicates.SnQueryPredicate)">
+            <summary>
+            Creates an SnQuery instance from the given predicate.
+            </summary>
+        </member>
+        <member name="M:SenseNet.Search.Querying.SnQuery.ToString">
+            <summary>
+            Returns with string representation of the query.
+            Contains the whole CQL query with predicates and extensions.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:SenseNet.Search.Querying.SnQueryClassifier">
+            <summary>
+            Defines a method that analyzes a SnQuery.
+            For future usage only. This class is not used in this release.
+            </summary>
+        </member>
+        <member name="M:SenseNet.Search.Querying.SnQueryClassifier.Classify(SenseNet.Search.Querying.SnQuery)">
+            <summary>
+            Analyzes a parsed SnQuery.
+            </summary>
+            <param name="query">The input query object</param>
+            <returns>An SnQueryInfo instance as a result of the analysis.</returns>
+        </member>
+        <member name="T:SenseNet.Search.Querying.SnQueryInfo">
+            <summary>
+            Represents a result of an SnQuery analysis.
+            Produced by the SnQueryClassifier.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Querying.SnQueryInfo.Query">
+            <summary>
+            Gets the analyzed query object.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Querying.SnQueryInfo.SortFields">
+            <summary>
+            Gets the sorting criterias in order of importance.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Querying.SnQueryInfo.QueryFieldNames">
+            <summary>
+            Gets all field names in the query.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Querying.SnQueryInfo.SortFieldNames">
+            <summary>
+            Gets all field names in the sort fields.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Querying.SnQueryInfo.Top">
+            <summary>
+            Gets the Top property value of the query.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Querying.SnQueryInfo.Skip">
+            <summary>
+            Gets the Skip property value of the query.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Querying.SnQueryInfo.CountAllPages">
+            <summary>
+            Gets the CountAllPages property value of the query.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Querying.SnQueryInfo.CountOnly">
+            <summary>
+            Gets the CountOnly property value of the query.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Querying.SnQueryInfo.AllVersions">
+            <summary>
+            Gets the AllVersions property value of the query.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Querying.SnQueryInfo.ShouldClauses">
+            <summary>
+            Gets the count of logical predicates with SHOULD occurrence in any depth of the query.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Querying.SnQueryInfo.MustClauses">
+            <summary>
+            Gets the count of logical predicates with MUST occurrence in any depth of the query.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Querying.SnQueryInfo.MustNotClauses">
+            <summary>
+            Gets the count of logical predicates with MUST NOT occurrence in any depth of the query.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Querying.SnQueryInfo.AsteriskWildcards">
+            <summary>
+            Gets the count of asterisks as wildcard in all SimplePredicates in any depth of the query.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Querying.SnQueryInfo.QuestionMarkWildcards">
+            Gets the count of question marks as wildcard in all SimplePredicates in any depth of the query.
+        </member>
+        <member name="P:SenseNet.Search.Querying.SnQueryInfo.BooleanQueries">
+            <summary>
+            Gets the count of the LogicalPredicates.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Querying.SnQueryInfo.FuzzyQueries">
+            <summary>
+            Gets the count of predicates that have not null fuzzy value.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Querying.SnQueryInfo.WildcardQueries">
+            <summary>
+            Gets the count of predicates that contain any wildcards.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Querying.SnQueryInfo.PrefixQueries">
+            <summary>
+            Gets the count of predicates that ends with the asterisk wildcard and do not contain any question mark wildcard.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Querying.SnQueryInfo.TermQueries">
+            <summary>
+            Gets the count of SimplePredicates that are not in PrefixQueries, WildcardQueries and FuzzyQueries.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Querying.SnQueryInfo.RangeQueries">
+            <summary>
+            Gets the count of RangePredicates.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.Querying.SnQueryInfo.FullRangeQueries">
+            <summary>
+            Gets the count of RangePredicates with minimum and maximum definition..
+            </summary>
+        </member>
+        <member name="M:SenseNet.Search.Querying.SnQueryInfo.#ctor">
+            <summary>
+            Initializes a new instance of the SnQueryInfo.
+            </summary>
+        </member>
+        <member name="M:SenseNet.Search.Querying.SnQueryInfo.ToString">
+            <summary>
+            Returns with the string representation of this object.
+            </summary>
+        </member>
+        <member name="T:SenseNet.Search.Querying.SnQueryVisitor">
+            <summary>
+            Represents a visitor or rewriter for SnQueryPredicate trees.
+            </summary>
+        </member>
+        <member name="M:SenseNet.Search.Querying.SnQueryVisitor.Visit(SenseNet.Search.Querying.Parser.Predicates.SnQueryPredicate)">
+            <summary>
+            Dispatches the predicate to one of the more specialized visit methods in this class.
+            </summary>
+            <param name="predicate">The predicate to visit.</param>
+            <returns>The modified predicate, if it or any child was modified; otherwise, returns the original predicate.</returns>
+        </member>
+        <member name="M:SenseNet.Search.Querying.SnQueryVisitor.VisitSimplePredicate(SenseNet.Search.Querying.Parser.Predicates.SimplePredicate)">
+            <summary>
+            Visits the given SimplePredicate.
+            </summary>
+            <param name="simplePredicate">The predicate to visit.</param>
+            <returns>The modified predicate, if it was modified; otherwise, returns the original predicate.</returns>
+        </member>
+        <member name="M:SenseNet.Search.Querying.SnQueryVisitor.VisitRangePredicate(SenseNet.Search.Querying.Parser.Predicates.RangePredicate)">
+            <summary>
+            Visits the given RangePredicate.
+            </summary>
+            <param name="range">The predicate to visit.</param>
+            <returns>The modified predicate, if it was modified; otherwise, returns the original predicate.</returns>
+        </member>
+        <member name="M:SenseNet.Search.Querying.SnQueryVisitor.VisitLogicalPredicate(SenseNet.Search.Querying.Parser.Predicates.LogicalPredicate)">
+            <summary>
+            Visits the given LogicalPredicate and it's children.
+            </summary>
+            <param name="logic">The predicate to visit.</param>
+            <returns>The modified predicate, if it or any child was modified; otherwise, returns the original predicate.</returns>
+        </member>
+        <member name="M:SenseNet.Search.Querying.SnQueryVisitor.VisitLogicalClauses(System.Collections.Generic.List{SenseNet.Search.Querying.Parser.Predicates.LogicalClause})">
+            <summary>
+            Visits the given list of LogicalClauses and all list items.
+            </summary>
+            <param name="clauses">The list to visit.</param>
+            <returns>The modified list, if it was modified or any item was changed; otherwise, returns the original list.</returns>
+        </member>
+        <member name="M:SenseNet.Search.Querying.SnQueryVisitor.VisitLogicalClause(SenseNet.Search.Querying.Parser.Predicates.LogicalClause)">
+            <summary>
+            Visits the given LogicalClause and it's child.
+            </summary>
+            <param name="clause">The clause to visit.</param>
+            <returns>The modified clause, if it or it's child was modified; otherwise, returns the original clause.</returns>
+        </member>
+        <member name="T:SenseNet.Search.Querying.SnTerm">
+            <summary>
+            Represents a name-value pair in the querying and indexing.
+            </summary>
+        </member>
+        <member name="M:SenseNet.Search.Querying.SnTerm.#ctor(System.String,System.String)">
+            <summary>
+            Initializes an instance of the SnTerm with a named System.String value
+            </summary>
+            <param name="name">The name of the term.</param>
+            <param name="value">System.String value</param>
+        </member>
+        <member name="M:SenseNet.Search.Querying.SnTerm.#ctor(System.String,System.String[])">
+            <summary>
+            Initializes an instance of the SnTerm with a named array of System.String value.
+            </summary>
+            <param name="name">The name of the term.</param>
+            <param name="value">Array of System.String value</param>
+        </member>
+        <member name="M:SenseNet.Search.Querying.SnTerm.#ctor(System.String,System.Boolean)">
+            <summary>
+            Initializes an instance of the SnTerm with a named System.Boolean value
+            </summary>
+            <param name="name">The name of the term.</param>
+            <param name="value">System.Boolean value</param>
+        </member>
+        <member name="M:SenseNet.Search.Querying.SnTerm.#ctor(System.String,System.Int32)">
+            <summary>
+            Initializes an instance of the SnTerm with a named System.Int32 value
+            </summary>
+            <param name="name">The name of the term.</param>
+            <param name="value">System.Int32 value</param>
+        </member>
+        <member name="M:SenseNet.Search.Querying.SnTerm.#ctor(System.String,System.Int32[])">
+            <summary>
+            Initializes an instance of the SnTerm with a named System.Int32 value
+            </summary>
+            <param name="name">The name of the term.</param>
+            <param name="value">System.Int32 value</param>
+        </member>
+        <member name="M:SenseNet.Search.Querying.SnTerm.#ctor(System.String,System.Int64)">
+            <summary>
+            Initializes an instance of the SnTerm with a named System.Int64 value
+            </summary>
+            <param name="name">The name of the term.</param>
+            <param name="value">System.Int64 value</param>
+        </member>
+        <member name="M:SenseNet.Search.Querying.SnTerm.#ctor(System.String,System.Single)">
+            <summary>
+            Initializes an instance of the SnTerm with a named System.Single value
+            </summary>
+            <param name="name">The name of the term.</param>
+            <param name="value">System.Single value</param>
+        </member>
+        <member name="M:SenseNet.Search.Querying.SnTerm.#ctor(System.String,System.Double)">
+            <summary>
+            Initializes an instance of the SnTerm with a named System.Double value
+            </summary>
+            <param name="name">The name of the term.</param>
+            <param name="value">System.Double value</param>
+        </member>
+        <member name="M:SenseNet.Search.Querying.SnTerm.#ctor(System.String,System.DateTime)">
+            <summary>
+            Initializes an instance of the SnTerm with a named System.DateTime value
+            </summary>
+            <param name="name">The name of the term.</param>
+            <param name="value">System.DateTime value</param>
+        </member>
+        <member name="P:SenseNet.Search.Querying.SnTerm.Name">
+            <summary>
+            Gets the name of the term.
+            </summary>
+        </member>
+        <member name="T:SenseNet.Search.QuerySettings">
+            <summary>
+            Defines the query extension values.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.QuerySettings.Top">
+            <summary>
+            Gets or sets the maximum count of the query result.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.QuerySettings.Skip">
+            <summary>
+            Gets or sets the number of items that are skipped in the beginning of the result list. 
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.QuerySettings.Sort">
+            <summary>
+            Gets or sets the sorting criterias in order of importance.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.QuerySettings.EnableAutofilters">
+            <summary>
+            Gets or sets the value of the switch that controls the auto filtering.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.QuerySettings.EnableLifespanFilter">
+            <summary>
+            Gets or sets the value of the switch that controls the lifespan filtering.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.QuerySettings.QueryExecutionMode">
+            <summary>
+            Gets or sets the performance option of the query executor.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.QuerySettings.AllVersions">
+            <summary>
+            Gets or sets the value of the switch that controls the querying of the old versions.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.QuerySettings.AdminSettings">
+            <summary>
+            Returns a new QuerySettings instance. Auto- and lifespan filters are off. The other values are default.
+            This is a shotcut of the "QuerySettings for Administrators"
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.QuerySettings.Default">
+            <summary>
+            Returns a new QuerySettings instance. All property values are default.
+            This is a shotcut for "QuerySettings for general purposes".
+            </summary>
+        </member>
+        <member name="T:SenseNet.Search.SortInfo">
+            <summary>
+            Represents a sorting criteria for querying.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.SortInfo.FieldName">
+            <summary>
+            Gets the field name.
+            </summary>
+        </member>
+        <member name="P:SenseNet.Search.SortInfo.Reverse">
+            <summary>
+            Gets the sorting direction. "False" means ascending, "true" means descending.
+            </summary>
+        </member>
+        <member name="M:SenseNet.Search.SortInfo.#ctor(System.String,System.Boolean)">
+            <summary>
+            Initializes an instance of the SortInfo
+            </summary>
+            <param name="fieldName">Name of the field. Cannot be null or empty.</param>
+            <param name="reverse">Direction of the sorting. "False" means ascending, "true" means descending. "False" is the default.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when fieldName parameter is null.</exception>  
+            <exception cref="T:System.ArgumentException">Thrown when fieldName parameter is empty.</exception>  
+        </member>
+        <member name="M:SenseNet.Search.SortInfo.ToString">
+            <summary>Retrieves a string representation of this instance in the following format: {FieldName} ASC|DESC.</summary>
+        </member>
+    </members>
+</doc>
